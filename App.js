@@ -1,6 +1,6 @@
 // import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, SafeAreaView,StatusBar, Platform, Button, Alert } from 'react-native';
+import { StyleSheet,View, Text, SafeAreaView,StatusBar, Platform, Button, Alert } from 'react-native';
 
 export default function App() {
   return (
@@ -17,6 +17,13 @@ export default function App() {
         Alert.prompt('My title','My message',text=>console.log(text))
       }
       />
+      <View style={{
+        backgroundColor: 'dodgerblue',
+        width: '50%',
+        height: 70
+      }}>
+
+      </View>
       {/* <Image 
         source={require('./assets/icon.png')}
       /> */}
