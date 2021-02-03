@@ -27,6 +27,8 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "A marketplace for selling stuffs you don't need anymore",
+    "githubUrl": "https://github.com/gadzorgenu2000/DoneWithIt.git"
   }
 }
