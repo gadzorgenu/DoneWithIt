@@ -1,9 +1,15 @@
 // import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet,View,Dimensions, Text, SafeAreaView,StatusBar, Platform, Button, Alert } from 'react-native';
+//Hooks for detecting screen orientation
+import { useDimensions, useDeviceOrientation } from '@react-native-community/hooks'
 
 export default function App() {
+  console.log(useDimensions())
+  console.log(useDeviceOrientation())
   console.log( Dimensions.get('screen'))
+
+  const { landscape} = useDeviceOrientation()
   return (
     <SafeAreaView style={styles.container}>
       {/* <Text>Hello world!!</Text> */}
@@ -19,9 +25,9 @@ export default function App() {
       }
       />
       <View style={{
-        backgroundColor: 'dodgerblue',
+        backgroundColor: 'blue',
         width: '100%',
-        height: 70
+        height: landscape ? '100%' : '30%'
       }}>
 
       </View>
