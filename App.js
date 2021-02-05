@@ -3,7 +3,9 @@ import { View } from 'react-native';
 import ViewImageScreen from './app/screens/ViewImageScreen';
 import WelcomeScreen from './app/screens/WelcomeScreen';
 import {MaterialCommunityIcons} from '@expo/vector-icons'
-import AppText from './app/components/AppText/AppText'
+import AppText from './app/components/AppText'
+import AppButton from './app/components/AppButton';
+
 export default function App() {
   
   return (
@@ -20,6 +22,9 @@ export default function App() {
         color='dodgerblue'
       />
       <AppText>Hello there</AppText>
+      <AppButton 
+        title='Login'
+      />
    </View>
   );
 }
