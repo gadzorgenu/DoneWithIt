@@ -9,7 +9,7 @@ const ListItemSeparator = () => {
       />
     );
 }
-
+  
 const styles = StyleSheet.create({
     separator : {
         width: '100%',
