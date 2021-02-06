@@ -7,6 +7,7 @@ import AppText from './app/components/AppText'
 import AppButton from './app/components/AppButton';
 import Card from './app/components/Card';
 import ListingDetailsScreen from './app/screens/ListingDetailsScreen';
+import MessageScreen from './app/screens/MessageScreen';
 
 export default function App() {
   
@@ -22,7 +23,7 @@ export default function App() {
     //     image={require('./app/assets/jacket.jpg')}
     //   />
     // </View>
-    <ViewImageScreen/>
+    <MessageScreen/>
   );
 }
 
