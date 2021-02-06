@@ -12,7 +12,7 @@ function Card({ image, title, subTitle }) {
             />
             <View style={styles.detailsContainer}>
            <AppText style={styles.title}> {title}</AppText>
-           <AppText> {subTitle}</AppText>
+           <AppText style={styles.subTitle}> {subTitle}</AppText>
             </View>
        </View>
     );
@@ -22,7 +22,8 @@ const styles = StyleSheet.create({
     card: {
         borderRadius: 15,
         borderColor: colors.white,
-        marginBottom: 20
+        marginBottom: 20,
+        overflow:'hidden' 
     },
     detailsContainer: {
         padding: 20
@@ -31,8 +32,13 @@ const styles = StyleSheet.create({
         width: '100%',
         height: 200
     },
+    subTitle: {
+       color: colors.secondary,
+       fontWeight: 'bold'   
+    },
     title: {
         marginBottom: 7
-    }
+    },
+    
 })
 export default Card;
