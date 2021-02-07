@@ -1,6 +1,7 @@
 import React from 'react';
 import { FlatList,StyleSheet, View } from 'react-native';
 import ListItem from '../components/ListItem';
+import ListItemDeleteAction from '../components/ListItemDeleteAction';
 import ListItemSeparator from '../components/ListItemSeparator';
 import Screen from '../components/Screen';
 
@@ -24,21 +25,14 @@ const MessageScreen = () => {
         <FlatList
           data={ messages}
           keyExtractor={ message=> message.id.toString()}
-          renderItem={({item}) => (
+           renderItem={({item}) => (
               <ListItem 
               title={item.title}
               subTitle={item.description}
               image={item.image}
               onPress={()=> console.log('Message selected', item)}
-              renderRightActions={()=> 
-                <View
-                    style={{
-                        backgroundColor: 'red',
-                        width: 70
-                    }}
-              >
-              </View>
-              }
+              // renderRightActions is a function for rendering basic view
+              renderRightActions={ListItemDeleteAction}
           />
           )}
           ItemSeparatorComponent={ListItemSeparator }
