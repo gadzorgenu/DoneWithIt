@@ -32,7 +32,7 @@ const MessageScreen = () => {
               image={item.image}
               onPress={()=> console.log('Message selected', item)}
               // renderRightActions is a function for rendering basic view
-              renderRightActions={ListItemDeleteAction}
+              renderRightActions={()=> <ListItemDeleteAction onPress={()=>console.log('Message Selected', item) }/>}
           />
           )}
           ItemSeparatorComponent={ListItemSeparator }
