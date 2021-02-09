@@ -7,23 +7,16 @@ import Swipeable from 'react-native-gesture-handler/Swipeable'
 function ListItem({ title, subTitle, image, onPress, renderRightActions}) {
     //TouchableHighlight gives an effect when the container is touched
     return (
-        <Swipeable renderRightActions={renderRightActions}>
-            <TouchableHighlight 
-                onPress={onPress}
-                underlayColor={colors.light}
-            >
-                <View style={styles.container}>
-                    <Image
-                        style={styles.image}
-                        source={image}
-                    />
-                    <View>
-                        <AppText style={styles.title}>{title}</AppText>
-                        <AppText style={styles.subTitle}>{subTitle}</AppText>
-                    </View>
-                </View>
-            </TouchableHighlight>
-        </Swipeable>
+        <View style={styles.container}>
+            <Image
+                style={styles.image}
+                source={image}
+            />
+            <View>
+                <AppText style={styles.title}>{title}</AppText>
+                <AppText style={styles.subTitle}>{subTitle}</AppText>
+            </View>
+        </View>
     );
 }
 
@@ -46,3 +39,27 @@ const styles = StyleSheet.create({
     }
 })
 export default ListItem;
+
+
+// function ListItem({ title, subTitle, image, onPress, renderRightActions}) {
+//     //TouchableHighlight gives an effect when the container is touched
+//     return (
+//         <Swipeable renderRightActions={renderRightActions}>
+//             <TouchableHighlight 
+//                 onPress={onPress}
+//                 underlayColor={colors.light}
+//             >
+//                 <View style={styles.container}>
+//                     <Image
+//                         style={styles.image}
+//                         source={image}
+//                     />
+//                     <View>
+//                         <AppText style={styles.title}>{title}</AppText>
+//                         <AppText style={styles.subTitle}>{subTitle}</AppText>
+//                     </View>
+//                 </View>
+//             </TouchableHighlight>
+//         </Swipeable>
+//     );
+// }
