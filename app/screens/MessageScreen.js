@@ -1,11 +1,11 @@
 import React from 'react';
-import { FlatList,StyleSheet, View } from 'react-native';
+import { FlatList,StyleSheet } from 'react-native';
 import ListItem from '../components/ListItem';
 import ListItemSeparator from '../components/ListItemSeparator';
 import Screen from '../components/Screen';
 
 const MessageScreen = () => {
-    const messages=[
+    const messages = [
         {
             id: 1,
             title: 'T1',

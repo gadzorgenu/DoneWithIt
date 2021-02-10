@@ -4,26 +4,28 @@ import colors from '../config/colors';
 import AppText from './AppText';
 import Swipeable from 'react-native-gesture-handler/Swipeable'
 
-function ListItem({ title, subTitle, image, onPress, renderRightActions}) {
-    //TouchableHighlight gives an effect when the container is touched
+function ListItem({ title, subTitle, image}) {
+    //TouchableHighlight & TouchableOpacity gives an effect when the container is touched
     return (
-        <View style={styles.container}>
-            <Image
-                style={styles.image}
-                source={image}
-            />
-            <View>
-                <AppText style={styles.title}>{title}</AppText>
-                <AppText style={styles.subTitle}>{subTitle}</AppText>
+        <TouchableHighlight onPress = {()=> console.log()}>
+            <View style={styles.container}>
+                <Image
+                    style={styles.image}
+                    source={image}
+                />
+                <View>
+                    <AppText style={styles.title}>{title}</AppText>
+                    <AppText style={styles.subTitle}>{subTitle}</AppText>
+                </View>
             </View>
-        </View>
+        </TouchableHighlight>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
-        padding:20
+        padding: 20
     },
     image: {
         width: 70,
