@@ -14,7 +14,7 @@ import ListItem from './app/components/ListItem';
 import AccountScreen from './app/screens/AccountScreen';
 import ListingsScreen from './app/screens/ListingsScreen';
 import AppTextInput from './app/components/AppTextInput';
-
+import AppPicker from './app/components/AppPicker'
 export default function App() {
   const [firstName, setFirstName] = useState('')
   const [isNew, setIsNew] = useState(false)
@@ -33,7 +33,9 @@ export default function App() {
           }}
       /> */}
       {/* <AppTextInput placeholder='Username'/> */}
-      <Switch value={isNew} onValueChange={ (newValue) => setIsNew(newValue)}/>
+      {/* <Switch value={isNew} onValueChange={ (newValue) => setIsNew(newValue)}/> */}
+      <AppPicker  icon="apps"  placeholder='Category'/>
+      <AppTextInput icon="email" placeholder='Email'/>
     </Screen>
     );
 }
