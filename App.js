@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import { Text, TextInput, View } from 'react-native';
+import { Switch, Text, TextInput, View } from 'react-native';
 import ViewImageScreen from './app/screens/ViewImageScreen';
 import WelcomeScreen from './app/screens/WelcomeScreen';
 import {MaterialCommunityIcons} from '@expo/vector-icons'
@@ -17,6 +17,7 @@ import AppTextInput from './app/components/AppTextInput';
 
 export default function App() {
   const [firstName, setFirstName] = useState('')
+  const [isNew, setIsNew] = useState(false)
   return (
     <Screen>
       {/* <Text>{firstName}</Text>
@@ -31,7 +32,8 @@ export default function App() {
             borderBottomWidth: 1
           }}
       /> */}
-      <AppTextInput placeholder='Username'/>
+      {/* <AppTextInput placeholder='Username'/> */}
+      <Switch value={isNew} onValueChange={ (newValue) => setIsNew(newValue)}/>
     </Screen>
     );
 }
