@@ -1,5 +1,5 @@
-import React from 'react';
-import { View } from 'react-native';
+import React,{useState} from 'react';
+import { Text, TextInput, View } from 'react-native';
 import ViewImageScreen from './app/screens/ViewImageScreen';
 import WelcomeScreen from './app/screens/WelcomeScreen';
 import {MaterialCommunityIcons} from '@expo/vector-icons'
@@ -13,12 +13,27 @@ import Icon from './app/components/Icon';
 import ListItem from './app/components/ListItem';
 import AccountScreen from './app/screens/AccountScreen';
 import ListingsScreen from './app/screens/ListingsScreen';
+import AppTextInput from './app/components/AppTextInput';
 
 export default function App() {
-  
+  const [firstName, setFirstName] = useState('')
   return (
- <ListingsScreen/>
-  );
+    <Screen>
+      {/* <Text>{firstName}</Text>
+      <TextInput 
+          maxLength={5}
+          // secureTextEntry
+          // keyboardType='numeric'
+          onChangeText={(text) => setFirstName(text)}
+          placeholder='First Name'
+          style={{
+            borderBottomColor:'#ccc',
+            borderBottomWidth: 1
+          }}
+      /> */}
+      <AppTextInput placeholder='Username'/>
+    </Screen>
+    );
 }
 
 
