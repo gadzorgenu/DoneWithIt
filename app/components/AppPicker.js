@@ -1,29 +1,50 @@
-import React from 'react';
-import { TextInput, View, StyleSheet } from 'react-native';
+import React, {useState} from 'react';
+import { TextInput, View, StyleSheet, Button,Modal, FlatList } from 'react-native';
 import { MaterialCommunityIcons} from '@expo/vector-icons'
 
 import AppText from './AppText'
 import defaultStyles from '../config/styles';
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
+import Screen from './Screen';
+import PickerItem from './PickerItem';
 
-function AppPicker({ icon,placeholder, ...otherProps}) {
+function AppPicker({ icon, items,placeholder}) {
+    const [modalVisible, setModalVisible] = useState(false)
     return (
-       <View style={styles.container}>
-           { icon && (
-               <MaterialCommunityIcons
-                    name={icon}
-                    size={20}
-                    color={defaultStyles.colors.meduim}
-                    style={styles.icon}
-               />
-           )}
-           <AppText style={styles.text}>{placeholder}</AppText>
-           <MaterialCommunityIcons
-                    name="chevron-down"
-                    size={20}
-                    color={defaultStyles.colors.meduim}
-               />
-           {/* <TextInput style={defaultStyles.text} {...otherProps}/> */}
-       </View>
+        <>
+            <TouchableWithoutFeedback onPress={()=> setModalVisible(true)}>
+                <View style={styles.container}>
+                    { icon && (
+                        <MaterialCommunityIcons
+                                name={icon}
+                                size={25}
+                                color={defaultStyles.colors.meduim}
+                                style={styles.icon}
+                        />
+                    )}
+                    <AppText style={styles.text}>{placeholder}</AppText>
+                    <MaterialCommunityIcons
+                                name="chevron-down"
+                                size={20}
+                                color={defaultStyles.colors.meduim}
+                        />
+                    {/* <TextInput style={defaultStyles.text} {...otherProps}/> */}
+                </View>
+            </TouchableWithoutFeedback>
+            <Modal visible={modalVisible} animationType='slide'>
+                <Button
+                    title='close'
+                    onPress={()=> setModalVisible(false)}
+                />
+                <FlatList
+                    data={items}
+                    keyExtractor={item => item.value.toString()}
+                    renderItem={
+                        ({item}) => <PickerItem label={item.label} onPress={()=>console.log(item)}/>
+                    }
+                />
+            </Modal>
+        </>
     );
 }
 

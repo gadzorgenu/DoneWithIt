@@ -34,6 +34,19 @@ export default function App() {
       {/* <Image 
         source={require('./assets/icon.png')}
       /> */}
+      <TextInput 
+          maxLength={5}
+          // secureTextEntry
+          // keyboardType='numeric'
+          onChangeText={(text) => setFirstName(text)}
+          placeholder='First Name'
+          style={{
+            borderBottomColor:'#ccc',
+            borderBottomWidth: 1
+          }}
+      /> */}
+      {/* <AppTextInput placeholder='Username'/> */}
+      {/* <Switch value={isNew} onValueChange={ (newValue) => setIsNew(newValue)}/> */}
       <StatusBar style="auto" />
     </SafeAreaView>
   );
