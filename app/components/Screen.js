@@ -1,5 +1,6 @@
 import React from 'react';
 import Constants from 'expo-constants'
+import PropTypes from 'prop-types'
 import {SafeAreaView, StyleSheet,View} from 'react-native'
 
 const Screen = ({ children, style}) => {
@@ -19,5 +20,10 @@ const styles = StyleSheet.create({
         flex: 1
     }
 })
+
+Screen.defaultProps= {
+    children: PropTypes.node,
+    
+}
 
 export default Screen;
