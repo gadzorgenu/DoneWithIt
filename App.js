@@ -2,26 +2,14 @@ import React,{useState} from 'react';
 import Screen from './app/components/Screen';
 import AppPicker from './app/components/AppPicker'
 import LoginScreen from './app/screens/LoginScreen';
+import ListingEditScreen from './app/screens/ListingEditScreen';
 
 export default function App() {
 
   const [firstName, setFirstName] = useState('')
   const [isNew, setIsNew] = useState(false)
   const [category, setCategory] = useState()
-  const categories=[
-    {
-      label: 'Furniture',
-      value: 1
-    },
-    {
-      label: 'Clothing',
-      value: 2
-    },
-    {
-      label: 'Cameras',
-      value: 3
-    }
-  ]
+ 
   return (
     // <Screen>
     //     <AppPicker  
@@ -33,7 +21,7 @@ export default function App() {
     //     />
     //   <AppTextInput icon="email" placeholder='Email'/>
     // </Screen>
-    <LoginScreen/>
+   <ListingEditScreen/>
     );
 }
 
