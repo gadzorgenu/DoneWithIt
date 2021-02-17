@@ -3,6 +3,7 @@ import Screen from './app/components/Screen';
 import AppPicker from './app/components/AppPicker'
 import LoginScreen from './app/screens/LoginScreen';
 import ListingEditScreen from './app/screens/ListingEditScreen';
+import MessageScreen from './app/screens/MessageScreen';
 
 export default function App() {
 
@@ -11,16 +12,7 @@ export default function App() {
   const [category, setCategory] = useState()
  
   return (
-    // <Screen>
-    //     <AppPicker  
-    //       selectedItem ={category}
-    //       onSelectItem={item => setCategory(item)}
-    //       icon="apps" 
-    //       items={categories} 
-    //       placeholder='Category'
-    //     />
-    //   <AppTextInput icon="email" placeholder='Email'/>
-    // </Screen>
+
    <ListingEditScreen/>
     );
 }

@@ -8,8 +8,8 @@ import Screen from '../components/Screen';
 const initialMessages = [
     {
         id: 1,
-        title: 'T1',
-        description: 'D1',
+        title: 'wehfjjkhf wkjfhiuef kjdfh skjvfh ksjfv ksjdf skjfhv skjfhvs kdjvhfksjdv skjbsevfb kewjrhh skejfbvsvd skdjfhvksd vxkjfdv',
+        description: 'slgj ero gh;uer greug ekjrhgvruirjeg kjre hgurnvfd,mnvjker hguir reoigv jkh guiver grejk hgvfd drgfuherr eugfvhrfegrie gvdrguhrj gfvlr gvurg ru yguirgtyvdg r yleruvliufy griue ygfviudkygirgyr7 reyfu rle ',
         image: require('../assets/jacket.jpg')
     },
     {

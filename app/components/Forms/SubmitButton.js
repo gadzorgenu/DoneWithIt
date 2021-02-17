@@ -7,7 +7,7 @@ function SubmitButton({title}) {
     
     return (
         <AppButton
-        title='Login'
+        title={title}
         onPress={handleSubmit}
     />
     );

@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet } from 'react-native'
 import * as Yup from 'yup'
+import CategoryPickerItem from '../components/CategoryPickerItem';
 
 import{
     AppForm,
@@ -25,7 +26,7 @@ const categories=[
 
 function ListingEditScreen () {
     return (
-       <Screen >
+       <Screen style={styles.container} >
            <AppForm
                 initialValues={{
                     title: '',
@@ -46,11 +47,14 @@ function ListingEditScreen () {
                     maxLength={8}
                     name='price'
                     placeholder='Price'
+                    width={120}
                 />
                 <AppFormPicker
                     items={categories}
                     name='category'
+                    PickerItemComponent={CategoryPickerItem}
                     placeholder='Category'
+                    width='50%'
                 />
                 <AppFormField
                     maxLength={255}
@@ -58,16 +62,16 @@ function ListingEditScreen () {
                     name='description'
                     numberOfLines={3}
                     placeholder='Description'
-                />
-                <SubmitButton title='Post'/>
-           </AppForm>
+                    />
+                <SubmitButton title='Post'/>         
+          </AppForm>
        </Screen>
     );
 }
 
-// const styles = StyleSheet.create({
-//     container:{
-//         color: 'red'
-//     }
-// })
+const styles = StyleSheet.create({
+    container:{
+        padding: 10
+    }
+})
 export default ListingEditScreen;
