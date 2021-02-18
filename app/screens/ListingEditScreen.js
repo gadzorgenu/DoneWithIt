@@ -22,7 +22,7 @@ const categories=[
     { label: 'Cars',value: 2, backgroundColor:'orange',icon:'car'},
     { label: 'Camera',value: 3, backgroundColor:'yellow', icon:'camera'},
     { label: 'Games',value:4,backgroundColor:'green', icon:'game'},
-    { label: 'Clothing',value:5,backgroundColor:'green', icon:'hill'},
+    { label: 'Clothing',value:5,backgroundColor:'green', icon:'shoe'},
     { label: 'Sports',value:6,backgroundColor:'blue', icon:'dribbble'},
     { label: 'Movies & Music',value:7,backgroundColor:'blue', icon:'headphone'},
     { label: 'Books',value:8,backgroundColor:'violet', icon:'book-open'},
