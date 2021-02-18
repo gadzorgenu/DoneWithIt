@@ -1,20 +1,25 @@
-import React,{useState} from 'react';
+import React,{useEffect} from 'react';
+import * as ImagePicker from 'expo-image-picker'
+import * as Permissions from 'expo-permissions'
 import Screen from './app/components/Screen';
-import AppPicker from './app/components/AppPicker'
-import LoginScreen from './app/screens/LoginScreen';
-import ListingEditScreen from './app/screens/ListingEditScreen';
-import MessageScreen from './app/screens/MessageScreen';
+import { Text } from 'react-native';
 
 export default function App() {
 
-  const [firstName, setFirstName] = useState('')
-  const [isNew, setIsNew] = useState(false)
-  const [category, setCategory] = useState()
- 
-  return (
+  const reqPerm = async () => {
+   const { granted }  = await ImagePicker.requestMediaLibraryPermissionsAsync()
+    if(!granted)
+    alert('You need to enable permission to access the library')
+  }
 
-   <ListingEditScreen/>
-    );
+useEffect(() => {
+  reqPerm();
+}, [])
+
+  return (
+   <Text> hi</Text>
+  )
+    
 }
 
 
