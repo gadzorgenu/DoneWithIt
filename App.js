@@ -18,22 +18,11 @@ const [imageUri, setImageUri] = useState()
     requestPermmission();
   }, [])
 
-  const selectImage = async ()=>{
-    try {
-      const result = ImagePicker.launchImageLibraryAsync()
-      if(!result.cancelled){
-        setImageUri(result.uri)
-      }
-    } catch (error) {
-      console.log('Error',error)
-    }
-  }
+ 
 
   return (
    <Screen> 
-      <Button title='Select Image' onPress={selectImage}/>
-      <Image source={{ uri: imageUri }} style={{ width: 200, height:200}}/>
-      <ImageInput imageUri={imageUri}/>
+      <ImageInput imageUri={imageUri} onChangeImage={ uri => setImageUri(uri)}/>
    </Screen>
   )
     
