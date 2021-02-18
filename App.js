@@ -1,23 +1,40 @@
-import React,{useEffect} from 'react';
+import React,{useEffect, useState} from 'react';
 import * as ImagePicker from 'expo-image-picker'
-import * as Permissions from 'expo-permissions'
 import Screen from './app/components/Screen';
-import { Text } from 'react-native';
+import { Button, Image } from 'react-native';
+import ImageInput from './app/components/ImageInput';
 
 export default function App() {
 
-  const reqPerm = async () => {
+const [imageUri, setImageUri] = useState()
+
+  const requestPermmission = async () => {
    const { granted }  = await ImagePicker.requestMediaLibraryPermissionsAsync()
     if(!granted)
     alert('You need to enable permission to access the library')
   }
 
-useEffect(() => {
-  reqPerm();
-}, [])
+  useEffect(() => {
+    requestPermmission();
+  }, [])
+
+  const selectImage = async ()=>{
+    try {
+      const result = ImagePicker.launchImageLibraryAsync()
+      if(!result.cancelled){
+        setImageUri(result.uri)
+      }
+    } catch (error) {
+      console.log('Error',error)
+    }
+  }
 
   return (
-   <Text> hi</Text>
+   <Screen> 
+      <Button title='Select Image' onPress={selectImage}/>
+      <Image source={{ uri: imageUri }} style={{ width: 200, height:200}}/>
+      <ImageInput imageUri={imageUri}/>
+   </Screen>
   )
     
 }
