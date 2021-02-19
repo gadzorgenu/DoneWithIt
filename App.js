@@ -1,21 +1,26 @@
 import React,{ useState} from 'react';
 import Screen from './app/components/Screen'
-import { Text } from 'react-native';
+import { Button, Text } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack'
-import { NavigationContainer } from '@react-navigation/native'
+import { NavigationContainer, useNavigation, useRoute } from '@react-navigation/native'
 
-const Tweets = () => {
+const Tweets = ({ navigation}) => {
   return(
     <Screen>
       <Text>Tweets</Text>
+      <Button
+        title='View tweet'
+        onPress={()=> navigation.navigate('TweetDetails')}
+      />
     </Screen>
   )
 }
 
-const TweetDetails = () => {
+const TweetDetails = ({ route }) => {
+  const route = useRoute()
   return(
     <Screen>
-      <Text>Tweets Details</Text>
+      <Text>Tweets Details {route.params.id}</Text>
     </Screen>
   )
 }
