@@ -32,8 +32,6 @@ function ImageInput({ imageUri, onChangeImage}) {
             mediaTypes: ImagePicker.MediaTypeOptions.All,
             quality: 1
           })
-          console.log(result)
-    
           if (!result.cancelled){
             onChangeImage(result.uri)
           }
