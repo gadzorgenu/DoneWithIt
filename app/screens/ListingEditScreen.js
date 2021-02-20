@@ -30,7 +30,7 @@ const categories=[
     { label: 'Sports',value:6,backgroundColor:'blue', icon:'football'},
     { label: 'Movies & Music',value:7,backgroundColor:'blue', icon:'headphones'},
     { label: 'Books',value:8,backgroundColor:'violet', icon:'book-open'},
-    { label: 'Others',value:9,backgroundColor:'gray', icon:'calendar'},
+    { label: 'Others',value:9,backgroundColor:'gray', icon:'calendar'}
   ]
 
 function ListingEditScreen () {
@@ -46,7 +46,8 @@ const location = useLocation()
                     category: null,
                     images:[]
                 }}
-                onSubmit={(values) => console.log(location)}
+                // onSubmit={(values) => console.log(location)}
+                onSubmit={(values) => console.log(values)}
                 validationSchema={validationSchema}
            >
                <FormImagePicker

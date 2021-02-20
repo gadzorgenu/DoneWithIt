@@ -5,7 +5,6 @@ import { MaterialCommunityIcons} from '@expo/vector-icons'
 import AppText from './AppText'
 import defaultStyles from '../config/styles';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
-import Screen from './Screen';
 import PickerItem from './PickerItem';
 
 const AppPicker = (
@@ -43,27 +42,26 @@ const AppPicker = (
                                 size={20}
                                 color={defaultStyles.colors.meduim}
                         />
-                    {/* <TextInput style={defaultStyles.text} {...otherProps}/> */}
                 </View>
             </TouchableWithoutFeedback>
             <Modal visible={modalVisible} animationType='slide'>
                 <Button
-                    title='close'
+                    title='Close'
                     onPress={()=> setModalVisible(false)}
                 />
                 <FlatList
                     data={items}
                     keyExtractor={item => item.value.toString()}
                     numColumns={numberOfColumns}
-                    renderItem={
-                        ({item}) =>
+                    renderItem={({item}) =>
                          <PickerItemComponent 
-                         item={item}
+                            item={item}
                             label={item.label} 
-                            onPress={()=>{
+                            onPress={() => {
                                 setModalVisible(false)
                                 onSelectItem(item)
-                        }}/>
+                            }}
+                        />
                     }
                 />
             </Modal>
