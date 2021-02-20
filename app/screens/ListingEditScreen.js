@@ -46,8 +46,7 @@ const location = useLocation()
                     category: null,
                     images:[]
                 }}
-                // onSubmit={(values) => console.log(location)}
-                onSubmit={(values) => console.log(values)}
+                onSubmit={(values) => console.log(location)}
                 validationSchema={validationSchema}
            >
                <FormImagePicker
@@ -69,7 +68,7 @@ const location = useLocation()
                     items={categories}
                     name='category'
                     numberOfColumns={3}
-                    PickerItemComponent={CategoryPickerItem}
+                    // PickerItemComponent={CategoryPickerItem}
                     placeholder='Category'
                     width='50%'
                 />
