@@ -7,6 +7,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import {MaterialCommunityIcons} from '@expo/vector-icons'
 import { color } from 'react-native-reanimated';
 import AuthNavigator from './app/navigation/AuthNavigator'
+import NavigationTheme from './app/navigation/NavigationTheme';
 const Tweets = ({ navigation}) => {
  
   return(
@@ -81,7 +82,7 @@ const TabNavigator = () =>{
 export default function App() {
 
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={NavigationTheme}>
         <AuthNavigator />
     </NavigationContainer>
   )

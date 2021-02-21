@@ -1,5 +1,5 @@
 import React from 'react';
-import {Image, StyleSheet} from 'react-native'
+import {StyleSheet} from 'react-native'
 import * as Yup from 'yup'
 
 import Screen from '../components/Screen';
@@ -11,6 +11,7 @@ import {
 
 const ValidationSchema =  Yup.object().shape({
     email: Yup.string().required().email().label('Email'),
+    name: Yup.string().required().label('Name'),
     password: Yup.string().required().min(6).label('Password')
 })
 
@@ -18,37 +19,41 @@ const RegisterScreen = () => {
 
     return (
        <Screen style={styles.container}>
-            <Image 
-                style={styles.logo}
-                source={require('../assets/logo.png')}
-            />
             <AppForm initialValues={{
                 email: '',
+                name: '',
                 password: ''
             }}
                 onSubmit={ values => console.log('val', values )}
                 validationSchema={ValidationSchema}
             >
-              <AppFormField 
-                                autoCapitalize='none'
-                                autoCorrect={false}
-                                icon='email'
-                                keyboardType='email-address'
-                                name='email'
-                                placeholder='Email'
-                                //on works on IOS
-                                // textContentType='emailAddress'
-                            />
-                            <AppFormField
-                                autoCapitalize='none'
-                                autoCorrect={false}
-                                icon='lock'
-                                placeholder='Password'
-                                name='password'
-                                secureTextEntry
-                                // textContentType='password'
-                            />
-                        <SubmitButton title='Login'/>
+                <AppFormField
+                    autoCapitalize='none'
+                    autoCorrect={false}
+                    icon='user'
+                    placeholder='Name'
+                    name='name'
+                />
+                <AppFormField 
+                    autoCapitalize='none'
+                    autoCorrect={false}
+                    icon='email'
+                    keyboardType='email-address'
+                    name='email'
+                    placeholder='Email'
+                    //on works on IOS
+                    // textContentType='emailAddress'
+                />
+                <AppFormField
+                    autoCapitalize='none'
+                    autoCorrect={false}
+                    icon='lock'
+                    placeholder='Password'
+                    name='password'
+                    secureTextEntry
+                    // textContentType='password'
+                />
+            <SubmitButton title='Register'/>
             </AppForm>
        </Screen>
     );
@@ -56,14 +61,7 @@ const RegisterScreen = () => {
 
 const styles = StyleSheet.create({
     container:{
-        padding:10
-    },
-    logo: {
-        width: 140,
-        height: 140,
-        alignSelf: 'center',
-        marginTop: 50,
-        marginBottom: 20
+        padding:5
     }
 })
 export default RegisterScreen;
