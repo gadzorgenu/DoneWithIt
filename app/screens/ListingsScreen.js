@@ -19,7 +19,7 @@ const listings =[
         image: require('../assets/couch.jpg')
     }
 ]
-function ListingsScreen(props) {
+function ListingsScreen() {
     return (
       <Screen style={styles.screen}>
           <FlatList
@@ -41,7 +41,6 @@ function ListingsScreen(props) {
 
 const styles = StyleSheet.create({
     screen:{
-        padding: 12,
         backgroundColor: colors.light
     }
 })

@@ -34,6 +34,7 @@ const categories=[
   ]
 
 function ListingEditScreen () {
+
 const location = useLocation()
 
     return (
@@ -46,7 +47,8 @@ const location = useLocation()
                     category: null,
                     images:[]
                 }}
-                onSubmit={(values) => console.log(location)}
+                // onSubmit={(values) => console.log(location)}
+                onSubmit={(values) => console.log(values)}
                 validationSchema={validationSchema}
            >
                <FormImagePicker

@@ -8,6 +8,7 @@ import {MaterialCommunityIcons} from '@expo/vector-icons'
 import { color } from 'react-native-reanimated';
 import AuthNavigator from './app/navigation/AuthNavigator'
 import NavigationTheme from './app/navigation/NavigationTheme';
+import AppNavigator from './app/navigation/AppNavigator';
 const Tweets = ({ navigation}) => {
  
   return(
@@ -83,7 +84,7 @@ export default function App() {
 
   return (
     <NavigationContainer theme={NavigationTheme}>
-        <AuthNavigator />
+        <AppNavigator />
     </NavigationContainer>
   )
 }
