@@ -4,7 +4,8 @@ import { Button, Text } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack'
 import { createBottomTabNavigator} from '@react-navigation/bottom-tabs'
 import { NavigationContainer } from '@react-navigation/native'
-
+import {MaterialCommunityIcons} from '@expo/vector-icons'
+import { color } from 'react-native-reanimated';
 
 const Tweets = ({ navigation}) => {
  
@@ -56,8 +57,19 @@ const Account = () => {
 const Tab = createBottomTabNavigator()
 const TabNavigator = () =>{
   return (
-    <Tab.Navigator>
-        <Tab.Screen name='Feed' component={Tweets}/>
+    <Tab.Navigator
+      tabBarOptions={{
+        activeBackgroundColor: 'tomato',
+        activeTintColor: 'white',
+        inactiveBackgroundColor:'#eee',
+        inactiveTintColor: 'black'
+      }}
+    >
+        <Tab.Screen 
+          options={{
+            tabBarIcon: ({ color,size}) => <MaterialCommunityIcons  name='home' size={size} color={color}/>
+          }}
+          name='Feed' component={Tweets}/>
         <Tab.Screen name='Account' component={Account}/>
     </Tab.Navigator>
   )
