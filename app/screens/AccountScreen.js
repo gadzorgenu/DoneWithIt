@@ -9,7 +9,7 @@ import colors from '../config/colors';
 
 const menuItems = [
     {
-        title:'My L istings',
+        title:'My Listings',
         icon:{
             name: 'format-list-bulleted',
             backgroundColor: colors.primary
@@ -20,11 +20,12 @@ const menuItems = [
         icon:{
             name: 'email',
             backgroundColor: colors.secondary
-        }
+        },
+        targetScreen: 'Messages'
     }
 ]
 
-function AccountScreen(props) {
+function AccountScreen({ navigation}) {
     return (
         <Screen style={styles.screen}>
             <View style={styles.container}>
@@ -48,6 +49,7 @@ function AccountScreen(props) {
                                     backgroundColor={item.icon.backgroundColor}
                                 />
                             }
+                            onPress={()=> navigation.navigate(item.targetScreen)}
                         />
                     } 
                 />

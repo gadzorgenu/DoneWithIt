@@ -42,7 +42,8 @@ function ListingsScreen({navigation}) {
 
 const styles = StyleSheet.create({
     screen:{
-        backgroundColor: colors.light
+        backgroundColor: colors.light,
+        marginBottom: 10
     }
 })
 export default ListingsScreen;
