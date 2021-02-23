@@ -8,6 +8,7 @@ import AccountNavigator from './AccountNavigator'
 import NewListingButton from './NewListingButton'
 
 const Tab = createBottomTabNavigator()
+
 const  AppNavigator = () => {
     return(
         <Tab.Navigator>
@@ -26,15 +27,17 @@ const  AppNavigator = () => {
             <Tab.Screen 
                 name='ListingEdit' 
                 component={ListingEditScreen}
-                options={{
-                    tabBarButton: ()=> <NewListingButton/>,
-                    tabBarIcon: ({color, size})=> 
-                    <MaterialCommunityIcons 
-                        color={color}
-                        name='plus-circle'
-                        size={size}
-                    />
-                }}
+                options={({ navigation })=> (
+                {
+                    tabBarButton: () => 
+                        <NewListingButton onPress={() => navigation.navigate('ListingEdit') }/>,
+                    tabBarIcon: ({color, size}) => (
+                        <MaterialCommunityIcons 
+                            color={color}
+                            name='plus-circle'
+                            size={size}
+                        />
+                )}) }
             />
             <Tab.Screen 
                 name='Account' 
