@@ -7,12 +7,17 @@ const Stack = createStackNavigator()
 
 const FeedNavigator = () => {
     return (
-        <Stack.Navigator mode='modal'>
-            <Stack.Screen  name='Listings' component={ListingsScreen}/>
+        <Stack.Navigator 
+        mode='card'
+            // screenOptions={{ headerShown: false}} 
+        >
+            <Stack.Screen  name='Listings' 
+            component={ListingsScreen}
+             
+            />
             <Stack.Screen  
                 name='ListingDetails' 
                 component={ListingDetailsScreen} 
-                // options={{ headerShown: false}}
             />
         </Stack.Navigator>
     )
