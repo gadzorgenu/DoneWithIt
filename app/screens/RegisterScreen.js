@@ -30,7 +30,7 @@ const RegisterScreen = () => {
                 <AppFormField
                     autoCapitalize='none'
                     autoCorrect={false}
-                    icon='user'
+                    icon='Account'
                     placeholder='Name'
                     name='name'
                 />

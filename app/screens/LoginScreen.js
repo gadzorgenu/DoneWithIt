@@ -30,25 +30,25 @@ const LoginScreen = () => {
                 validationSchema={ValidationSchema}
             >
               <AppFormField 
-                                autoCapitalize='none'
-                                autoCorrect={false}
-                                icon='email'
-                                keyboardType='email-address'
-                                name='email'
-                                placeholder='Email'
-                                //on works on IOS
-                                // textContentType='emailAddress'
-                            />
-                            <AppFormField
-                                autoCapitalize='none'
-                                autoCorrect={false}
-                                icon='lock'
-                                placeholder='Password'
-                                name='password'
-                                secureTextEntry
-                                // textContentType='password'
-                            />
-                        <SubmitButton title='Login'/>
+                autoCapitalize='none'
+                autoCorrect={false}
+                icon='email'
+                keyboardType='email-address'
+                name='email'
+                placeholder='Email'
+                //on works on IOS
+                // textContentType='emailAddress'
+            />
+            <AppFormField
+                autoCapitalize='none'
+                autoCorrect={false}
+                icon='lock'
+                placeholder='Password'
+                name='password'
+                secureTextEntry
+                // textContentType='password'
+            />
+        <SubmitButton title='Login'/>
             </AppForm>
        </Screen>
     );
