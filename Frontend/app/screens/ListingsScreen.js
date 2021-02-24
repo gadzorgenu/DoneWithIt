@@ -1,10 +1,11 @@
-import React from 'react';
+import React,{ useEffect, useState} from 'react';
 import { FlatList, StyleSheet } from 'react-native';
 import Card from '../components/Card';
 
 import Screen from '../components/Screen';
 import colors from '../config/colors';
 import routes from '../navigation/routes';
+import listingsApi from '../api/listings'
 
 const listings =[
     {
@@ -18,9 +19,60 @@ const listings =[
         title: 'Couch in great condition',
         price: 1000,
         image: require('../assets/couch.jpg')
-    }
+    },
+    {
+        id: 3,
+        title: 'Room & board couch (great condition)',
+        price: 1500,
+        image: require('../assets/room_couch.jpg')
+    },
+    {
+        id: 4,
+        title: 'Designer wear shoes', 
+        price: 100,
+        image: require('../assets/shoe.jpg')
+    },
+    {
+        id: 5,
+        title: 'Canon 400D (Great condition)', 
+        price: 300,
+        image: require('../assets/camera.jpg')
+    },
+    {
+        id: 5,
+        title: 'Nikon D850 for sale ', 
+        price: 350,
+        image: require('../assets/nikon_camera.jpg')
+    },
+    {
+        id: 6,
+        title: 'Comfortable bed', 
+        price: 2000,
+        image: require('../assets/bed.jpg')
+    },
+    {
+        id: 6,
+        title: 'Black spin exercise bike', 
+        price: 800,
+        image: require('../assets/gym.jpg')
+    },
+    
 ]
+
+
 function ListingsScreen({navigation}) {
+    //api integration
+    const [listings, setListings] = useState([])
+    
+    useEffect(() => {
+        async( () => {
+            const response = await listingsApi.getListings()
+            console.log(response)
+            setListings(response.data)
+        })()
+    }, [])
+   
+        
     return (
       <Screen style={styles.screen}>
           <FlatList
@@ -32,7 +84,8 @@ function ListingsScreen({navigation}) {
                 <Card
                     title={item.title}
                     subTitle={'$'+ item.price}
-                    image={item.image}
+                    imageUrl={item.image}
+                    // image={item.images[0].url}
                     onPress={() => navigation.navigate(routes.LISTING_DETAILS, item)}
                 />
             }
