@@ -1,5 +1,6 @@
 import React,{ useEffect, useState} from 'react';
 import { FlatList, StyleSheet } from 'react-native';
+import ActivityIndicator from '../components/ActivityIndicator';
 import Card from '../components/Card';
 
 import Screen from '../components/Screen';
@@ -63,6 +64,8 @@ const listings =[
 
 
 function ListingsScreen({navigation}) {
+
+    const [loading, setLoading] = useState(false)
     //api integration
 //     const [listing, setListing] = useState([])
 //     const [error, setError] = useState(false)
@@ -72,7 +75,10 @@ function ListingsScreen({navigation}) {
 //     }, [])
 
 //   const loadListings =  async() => {
+//          setLoading(true)
 //         const response = await listingsApi.getListings()
+//          setLoading(false)
+
 //         console.log(response)
 //         if(!response.ok) return setError(true)
 
@@ -89,7 +95,8 @@ function ListingsScreen({navigation}) {
                 <Button title='Retry' onPress={loadListings}/>
               </>
           )} */}
-          <FlatList
+          <ActivityIndicator visible={true}/>
+          {/* <FlatList
             data={listings}
             // data={listing}
             //the id is to be converted to a string because Flatlist expects a string as a unique identifier
@@ -104,7 +111,7 @@ function ListingsScreen({navigation}) {
                     onPress={() => navigation.navigate(routes.LISTING_DETAILS, item)}
                 />
             }
-          />
+          /> */}
       </Screen>
     );
 }
