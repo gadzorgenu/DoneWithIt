@@ -5,7 +5,9 @@ import Card from '../components/Card';
 import Screen from '../components/Screen';
 import colors from '../config/colors';
 import routes from '../navigation/routes';
-import listingsApi from '../api/listings'
+// import listingsApi from '../api/listings'
+// import AppText from '../components/AppText';
+// import AppButton from '../components/AppButton'
 
 const listings =[
     {
@@ -39,19 +41,19 @@ const listings =[
         image: require('../assets/camera.jpg')
     },
     {
-        id: 5,
+        id: 6,
         title: 'Nikon D850 for sale ', 
         price: 350,
         image: require('../assets/nikon_camera.jpg')
     },
     {
-        id: 6,
+        id: 7,
         title: 'Comfortable bed', 
         price: 2000,
         image: require('../assets/bed.jpg')
     },
     {
-        id: 6,
+        id: 8,
         title: 'Black spin exercise bike', 
         price: 800,
         image: require('../assets/gym.jpg')
@@ -62,21 +64,34 @@ const listings =[
 
 function ListingsScreen({navigation}) {
     //api integration
-    const [listings, setListings] = useState([])
+//     const [listing, setListing] = useState([])
+//     const [error, setError] = useState(false)
     
-    useEffect(() => {
-        async( () => {
-            const response = await listingsApi.getListings()
-            console.log(response)
-            setListings(response.data)
-        })()
-    }, [])
+//     useEffect(() => {
+//         loadListings()
+//     }, [])
+
+//   const loadListings =  async() => {
+//         const response = await listingsApi.getListings()
+//         console.log(response)
+//         if(!response.ok) return setError(true)
+
+//         setError(false)
+//         setListing(response.data)
+//     }
    
         
     return (
       <Screen style={styles.screen}>
+          {/* { error && (
+              <>
+                <AppText>Couldn't retrieve the listings</AppText>
+                <Button title='Retry' onPress={loadListings}/>
+              </>
+          )} */}
           <FlatList
             data={listings}
+            // data={listing}
             //the id is to be converted to a string because Flatlist expects a string as a unique identifier
             keyExtractor={listing=> listing.id.toString()}
             renderItem={
