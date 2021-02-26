@@ -44,22 +44,28 @@ const [progress, setProgress] = useState(0)
 
 console.log('loc',location)
 const onSubmit = async (listing) => {
-    setProgress(0)
-    setUploadVisible(true)
+    // setProgress(0)
+    // setUploadVisible(true)
     // const result = await listingsApi.addListing( { ...listing, location},
     // progress => setProgress(progress)
     // )
-    // setUploadVisible(false)
 
-    // if(!result.ok)
-    //    return alert('Could not save the listing.')
+    // if(!result.ok){
+        // setUploadVisible(false)
+//      return alert('Could not save the listing.')
+    // }
     
     alert('Success')
 }
 
     return (
        <Screen style={styles.container} >
-           <UploadScreen progress={progress} visible={uploadVisible} />
+           <UploadScreen 
+                onDone={()=> 
+                setUploadVisible(false)} 
+                progress={progress} 
+                visible={uploadVisible} 
+            />
            <AppForm
                 initialValues={{
                     title: '',
