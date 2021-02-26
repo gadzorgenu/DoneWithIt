@@ -12,6 +12,8 @@ import CategoryPickerItem from '../components/CategoryPickerItem';
 import Screen from '../components/Screen';
 import FormImagePicker from '../components/Forms/FormImagePicker';
 import useLocation from '../hooks/useLocation';
+import listingsApi from '../api/listings'
+
 
 const  validationSchema = Yup.object().shape({
     title: Yup.string().required().min(1).label('Title'),
@@ -37,6 +39,17 @@ function ListingEditScreen () {
 
 const location = useLocation()
 
+const onSubmit = async (listing) => {
+    
+    // const result = await listingsApi.addListing( { ...listing, location})
+    const result = await listingsApi.addListing( { ...listing})
+
+    if(!result.ok)
+       return alert('Could not save the listing.')
+    
+    alert('Success')
+}
+
     return (
        <Screen style={styles.container} >
            <AppForm
@@ -48,7 +61,7 @@ const location = useLocation()
                     images:[]
                 }}
                 // onSubmit={(values) => console.log(location)}
-                onSubmit={(values) => console.log(values)}
+                onSubmit={onSubmit}
                 validationSchema={validationSchema}
            >
                <FormImagePicker
