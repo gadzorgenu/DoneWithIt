@@ -65,40 +65,34 @@ const listings =[
 
 function ListingsScreen({navigation}) {
 
-    const [loading, setLoading] = useState(false)
-    //api integration
-//     const [listing, setListing] = useState([])
-//     const [error, setError] = useState(false)
+//we're passing a reference to this function
+// EITHER THIS
+//  const getListingsApi = useApi(listingsApi.getListings)
     
-//     useEffect(() => {
-//         loadListings()
-//     }, [])
+//  useEffect(() => {
+//     getListingsApi.request()
+//  }, [])
 
-//   const loadListings =  async() => {
-//          setLoading(true)
-//         const response = await listingsApi.getListings()
-//          setLoading(false)
+// OR THAT
 
-//         console.log(response)
-//         if(!response.ok) return setError(true)
+// const { data: listings, error, loading, request: loadListings } = useApi()
 
-//         setError(false)
-//         setListing(response.data)
-//     }
-   
+// useEffect(() => {
+//    loadListings()
+// }, [])
         
     return (
       <Screen style={styles.screen}>
-          {/* { error && (
+          {/* { getListingsApi.error && (
               <>
                 <AppText>Couldn't retrieve the listings</AppText>
                 <Button title='Retry' onPress={loadListings}/>
               </>
           )} */}
-          <ActivityIndicator visible={true}/>
-          {/* <FlatList
+          {/* <ActivityIndicator visible={getListingsApi.loading}/> */}
+          <FlatList
             data={listings}
-            // data={listing}
+            // data={getListingsApi.data}
             //the id is to be converted to a string because Flatlist expects a string as a unique identifier
             keyExtractor={listing=> listing.id.toString()}
             renderItem={
@@ -111,7 +105,7 @@ function ListingsScreen({navigation}) {
                     onPress={() => navigation.navigate(routes.LISTING_DETAILS, item)}
                 />
             }
-          /> */}
+          />
       </Screen>
     );
 }
