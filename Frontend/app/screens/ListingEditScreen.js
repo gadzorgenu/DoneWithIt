@@ -42,8 +42,7 @@ const location = useLocation()
 const [uploadVisible, setUploadVisible] = useState(false)
 const [progress, setProgress] = useState(0)
 
-console.log('loc',location)
-const onSubmit = async (listing) => {
+const onSubmit = async (listing, { resetForm}) => {
     // setProgress(0)
     // setUploadVisible(true)
     // const result = await listingsApi.addListing( { ...listing, location},
@@ -54,8 +53,7 @@ const onSubmit = async (listing) => {
         // setUploadVisible(false)
 //      return alert('Could not save the listing.')
     // }
-    
-    alert('Success')
+    resetForm()
 }
 
     return (
