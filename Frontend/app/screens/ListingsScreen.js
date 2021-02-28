@@ -103,6 +103,7 @@ function ListingsScreen({navigation}) {
                     imageUrl={item.image}
                     // image={item.images[0].url}
                     onPress={() => navigation.navigate(routes.LISTING_DETAILS, item)}
+                    // thumbnailUrl = {item.images[0].thumbnailUrl}
                 />
             }
           />
