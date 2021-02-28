@@ -42,6 +42,7 @@ const location = useLocation()
 const [uploadVisible, setUploadVisible] = useState(false)
 const [progress, setProgress] = useState(0)
 
+console.log('loc',location)
 const onSubmit = async (listing, { resetForm}) => {
     // setProgress(0)
     // setUploadVisible(true)

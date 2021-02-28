@@ -1,0 +1,128 @@
+{
+  "listings": [
+    {
+      "id": 1,
+      "title": "Red jacket for sale",
+      "price": 100,
+      "images": [
+        {
+          "url": "'http://192.168.8.126:9000/assets/jacket.jpg'"
+        }
+      ],
+      "categoryId": 5,
+      "location":{
+        "latitude": 37.4219723,
+        "longitude": -122.0839936
+      }
+    },
+    {
+      "id": 2,
+      "title": "Couch in great condition",
+      "price": 1000,
+      "categoryId": 1,
+      "location":{
+        "latitude": 37.4219723,
+        "longitude": -122.0839936
+      },
+      "images": [
+        {
+          "url": "http://192.168.8.126:9000/assets/couch.jpg"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Room & board couch (great condition)",
+      "price": 1500,
+      "categoryId": 1,
+      "location":{
+        "latitude": 37.4219723,
+        "longitude": -122.0839936
+      },
+      "images": [
+        {
+          "url": "http://192.168.8.126:9000/assets/room_couch.jpg"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Designer wear shoes",
+      "price": 1500,
+      "categoryId": 5,
+      "location":{
+        "latitude": 37.4219723,
+        "longitude": -122.0839936
+      },
+      "images": [
+        {
+          "url": "http://192.168.8.126:9000/assets/shoe.jpg"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Canon 400D (Great condition)",
+      "price": 300,
+      "categoryId": 3,
+      "location":{
+        "latitude": 37.4219723,
+        "longitude": -122.0839936
+      },
+      "images": [
+        {
+          "url": "http://192.168.8.126:9000/assets/camera.jpg"
+        }
+      ]
+
+    },
+    {
+      "id": 6,
+      "title": "Nikon D850 for sale ",
+      "price": 350,
+      "categoryId": 3,
+      "location":{
+        "latitude": 37.4219723,
+        "longitude": -122.0839936
+      },
+      "images": [
+        {
+          "url": "http://192.168.8.126:9000/assets/nikon_camera.jpg"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Comfortable bed ",
+      "price": 2000,
+      "categoryId": 1,
+      "location":{
+        "latitude": 37.4219723,
+        "longitude": -122.0839936
+      },
+      "images": [
+        {
+          "url": "http://192.168.8.126:9000/assets/bed.jpg"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Black spin exercise bike",
+      "price": 2000,
+      "categoryId": 4,
+      "location":{
+        "latitude": 37.4219723,
+        "longitude": -122.0839936
+      },
+      "images": [
+        {
+          "url": "http://192.168.8.126:9000/assets/gym.jpg"
+        }
+      ]
+    }
+    
+  ]
+  
+}
+

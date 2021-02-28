@@ -1,14 +1,30 @@
 
-// require ('dotenv').config()
-// const express = require('express')
-// // const mongoose = require('mongoose')
-// // const path = require('path')
+require ('dotenv').config()
+const express = require('express')
+const mongoose = require('mongoose')
 
-// const app = express()
+const listingRoute = require('./routes/listing')
 
-// const port = 9000
+const app = express()
 
-//     app.listen(port, () => {
-//         //also trying to log info
-//         console.info('Application started');
-//     })
+const db = process.env.db
+
+const port = 9000
+
+mongoose.connect(db, 
+    {
+    useNewUrlParser: true, 
+    useUnifiedTopology:true, 
+    useCreateIndex: true
+    },
+    ()=>{
+    app.listen(port, () => {
+        //also trying to log info
+        console.info('Application started');
+    })
+})
+//middleware
+app.use(express.json())
+
+//routes
+app.use(listingRoute)

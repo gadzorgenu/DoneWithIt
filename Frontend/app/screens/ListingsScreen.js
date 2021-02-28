@@ -6,7 +6,8 @@ import Card from '../components/Card';
 import Screen from '../components/Screen';
 import colors from '../config/colors';
 import routes from '../navigation/routes';
-// import listingsApi from '../api/listings'
+import listingsApi from '../api/listings'
+import useApi from '../hooks/useApi';
 // import AppText from '../components/AppText';
 // import AppButton from '../components/AppButton'
 
@@ -67,11 +68,12 @@ function ListingsScreen({navigation}) {
 
 //we're passing a reference to this function
 // EITHER THIS
-//  const getListingsApi = useApi(listingsApi.getListings)
+ const getListingsApi = useApi(listingsApi.getListings)
+ console.log(getListingsApi)
     
-//  useEffect(() => {
-//     getListingsApi.request()
-//  }, [])
+ useEffect(() => {
+    getListingsApi.request()
+ }, [])
 
 // OR THAT
 

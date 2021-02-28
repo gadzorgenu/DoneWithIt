@@ -1,6 +1,6 @@
 import React from 'react';
-import { View, StyleSheet, TouchableWithoutFeedback } from 'react-native';
-import { Image } from 'react-native-expo-image-cache'
+import { View, StyleSheet, TouchableWithoutFeedback,Image } from 'react-native';
+// import { Image } from 'react-native-expo-image-cache'
 
 import colors from '../config/colors'
 import AppText from './AppText';
@@ -19,7 +19,7 @@ function Card({
                         style={styles.image} 
                         // tint='light'
                         // preview={{ uri: thumbnailUrl }}
-                        uri={imageUrl}
+                        source={imageUrl}
                     />
                     <View style={styles.detailsContainer}>
                 <AppText style={styles.title} numberOfLines={1}> {title}</AppText>
