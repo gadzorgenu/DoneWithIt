@@ -7,13 +7,16 @@ import { useNetInfo } from '@react-native-community/netinfo'
 
 function OfflineNotice() {
     const netInfo = useNetInfo()
-    console.log(netInfo)
- return (
-<View style={styles.container}>
-    <AppText style={styles.text}> No Internet Connection</AppText>
-</View>
-);
+    if(netInfo.type !=='unknown' && netInfo.isInternetReachable === false )
+    return (
+        <View style={styles.container}>
+            <AppText style={styles.text}> No Internet Connection</AppText>
+        </View>
+    );
+
+    return null 
 }
+
 
 const styles = StyleSheet.create({
  container: {
