@@ -9,6 +9,7 @@ const app = express()
 
 const db = process.env.db
 
+const hostname = "192.168.8.126";
 const port = 9000
 
 mongoose.connect(db, 
@@ -18,9 +19,9 @@ mongoose.connect(db,
     useCreateIndex: true
     },
     ()=>{
-    app.listen(port, () => {
+    app.listen(port,hostname, () => {
         //also trying to log info
-        console.info('Application started');
+        console.info(`Server running at http://${hostname}:${port}/`);
     })
 })
 //middleware
@@ -28,3 +29,5 @@ app.use(express.json())
 
 //routes
 app.use(listingRoute)
+
+// "start": "json-server -p 9000 -w db.json",
