@@ -92,9 +92,10 @@ export default function App() {
       <NavigationContainer theme={NavigationTheme}>
       {  user ?  <AppNavigator /> : <AuthNavigator/> }
       </NavigationContainer>
-    <AuthContext.Provider/>
+    </AuthContext.Provider>
   )
 }
+
 
 // import React from 'react'
 // // import NetInfo, { useNetInfo} from '@react-native-community/netinfo'
