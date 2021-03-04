@@ -6,7 +6,7 @@
       "price": 100,
       "images": [
         {
-          "url": "'http://192.168.8.126:9000/assets/jacket.jpg'"
+          "url": "https://images.unsplash.com/photo-1525718637816-f28758beafb8?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
         }
       ],
       "categoryId": 5,
@@ -26,7 +26,7 @@
       },
       "images": [
         {
-          "url": "http://192.168.8.126:9000/assets/couch.jpg"
+          "url": "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHx2aXN1YWwtc2VhcmNofDF8fHxlbnwwfHx8&auto=format&fit=crop&w=600&q=60"
         }
       ]
     },
@@ -41,7 +41,7 @@
       },
       "images": [
         {
-          "url": "http://192.168.8.126:9000/assets/room_couch.jpg"
+          "url": "https://images.unsplash.com/photo-1599619351208-3e6c839d6828?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1052&q=80"
         }
       ]
     },
@@ -56,7 +56,7 @@
       },
       "images": [
         {
-          "url": "http://192.168.8.126:9000/assets/shoe.jpg"
+          "url": "https://images.unsplash.com/photo-1603191659812-ee978eeeef76?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
         }
       ]
     },
@@ -71,7 +71,7 @@
       },
       "images": [
         {
-          "url": "http://192.168.8.126:9000/assets/camera.jpg"
+          "url": "https://images.unsplash.com/photo-1502982720700-bfff97f2ecac?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
         }
       ]
 
@@ -87,7 +87,7 @@
       },
       "images": [
         {
-          "url": "http://192.168.8.126:9000/assets/nikon_camera.jpg"
+          "url": "https://images.unsplash.com/photo-1534131707746-25d604851a1f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
         }
       ]
     },
@@ -102,7 +102,7 @@
       },
       "images": [
         {
-          "url": "http://192.168.8.126:9000/assets/bed.jpg"
+          "url": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?ixid=MXwxMjA3fDB8MHx2aXN1YWwtc2VhcmNofDF8fHxlbnwwfHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60"
         }
       ]
     },
@@ -117,11 +117,10 @@
       },
       "images": [
         {
-          "url": "http://192.168.8.126:9000/assets/gym.jpg"
+          "url": "https://images.unsplash.com/photo-1540497077202-7c8a3999166f?ixid=MXwxMjA3fDB8MHx2aXN1YWwtc2VhcmNofDF8fHxlbnwwfHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60"
         }
       ]
     }
-    
   ]
   
 }
