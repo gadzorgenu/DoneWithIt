@@ -4,10 +4,11 @@ const express = require('express')
 const mongoose = require('mongoose')
 
 const listingRoute = require('./routes/listing')
+const userRoute = require('./routes/auth')
 
 const app = express()
 
-const db = process.env.db
+const db = process.env.Mongodb
 
 const hostname = "192.168.8.126";
 const port = 9000
@@ -29,5 +30,6 @@ app.use(express.json())
 
 //routes
 app.use(listingRoute)
+app.use(userRoute)
 
 // "start": "json-server -p 9000 -w db.json",

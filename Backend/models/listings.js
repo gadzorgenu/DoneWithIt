@@ -19,9 +19,11 @@ const listingSchema = new mongoose.Schema({
         required:[ true, 'Category ID is required']
     },
     images: [
-        {
-            url: String,
-            required: [ true, 'Image is required']
+       {    
+           url: {
+                type: String,
+                required: [ true, 'Image is required']
+            }
         }
     ],
     location: {
