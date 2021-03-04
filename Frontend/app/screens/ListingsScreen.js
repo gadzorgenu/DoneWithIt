@@ -6,8 +6,8 @@ import Card from '../components/Card';
 import Screen from '../components/Screen';
 import colors from '../config/colors';
 import routes from '../navigation/routes';
-// import listingsApi from '../api/listings'
-// import useApi from '../hooks/useApi';
+import listingsApi from '../api/listings'
+import useApi from '../hooks/useApi';
 // import AppText from '../components/AppText';
 // import AppButton from '../components/AppButton'
 
@@ -66,7 +66,7 @@ const listings =[
 
 function ListingsScreen({navigation}) {
 
-//we're passing a reference to this function
+// we're passing a reference to this function
 // EITHER THIS
 //  const getListingsApi = useApi(listingsApi.getListings)
 //  console.log(getListingsApi)
@@ -77,7 +77,7 @@ function ListingsScreen({navigation}) {
 
 // OR THAT
 
-// const { data: listings, error, loading, request: loadListings } = useApi()
+const { data: listing, error, loading, request: loadListings } = useApi()
 
 // useEffect(() => {
 //    loadListings()

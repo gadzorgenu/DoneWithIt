@@ -6,6 +6,6 @@ const { addListing,getListings} = require('../controller/listings')
 router.post('/listing', addListing)
 
 //retrieving listings
-router.get('/listing', getListings)
+router.get('/listings', getListings)
 
 module.exports = router
