@@ -8,9 +8,13 @@ const UserController = {}
 //create user
 UserController.createUser = async (req, res) =>{
     try {
+        console.log('body',req.body)
         req.body.password = bcrypt.hashSync(req.body.password, 10)
         let newUser = new User(req.body)
+        console.log('newuser', newUser)
         let result = await newUser.save()
+        console.log('res', result)
+
         res.status(201).send({ message: 'Account created', result})
     } catch (error) {
         console.log(error)

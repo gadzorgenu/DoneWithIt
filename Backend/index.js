@@ -9,6 +9,7 @@ const userRoute = require('./routes/auth')
 const app = express()
 
 const db = process.env.Mongodb
+console.log('db',db)
 
 const hostname = "192.168.8.126";
 const port = 9000
