@@ -39,32 +39,35 @@ const categories=[
 function ListingEditScreen () {
 
 const location = useLocation()
-const [uploadVisible, setUploadVisible] = useState(false)
-const [progress, setProgress] = useState(0)
+// const [uploadVisible, setUploadVisible] = useState(false)
+// const [progress, setProgress] = useState(0)
 
-console.log('loc',location)
-const onSubmit = async (listing, { resetForm}) => {
+const onSubmit = async (values, { resetForm}) => {
+    console.log('value',values)
+    const result = await listingsApi.addListing( { ...values, location})
+    console.log('result',result)
     // setProgress(0)
     // setUploadVisible(true)
-    // const result = await listingsApi.addListing( { ...listing, location},
+
     // progress => setProgress(progress)
     // )
 
-    // if(!result.ok){
+    if(!result.ok){
         // setUploadVisible(false)
-//      return alert('Could not save the listing.')
-    // }
+     return alert('Could not save the listing.')
+    }
+    alert('Sucess')
     resetForm()
 }
-
+ 
     return (
        <Screen style={styles.container} >
-           <UploadScreen 
+           {/* <UploadScreen 
                 onDone={()=> 
                 setUploadVisible(false)} 
                 progress={progress} 
                 visible={uploadVisible} 
-            />
+            /> */}
            <AppForm
                 initialValues={{
                     title: '',
@@ -73,7 +76,6 @@ const onSubmit = async (listing, { resetForm}) => {
                     category: null,
                     images:[]
                 }}
-                // onSubmit={(values) => console.log(location)}
                 onSubmit={onSubmit}
                 validationSchema={validationSchema}
            >
@@ -84,6 +86,7 @@ const onSubmit = async (listing, { resetForm}) => {
                     maxLength={255}  
                     name='title' 
                     placeholder='Title'
+                    // value='title'
                 />
                 <AppFormField
                     keyboardType='numeric'
@@ -91,6 +94,7 @@ const onSubmit = async (listing, { resetForm}) => {
                     name='price'
                     placeholder='Price'
                     width={120}
+                    // value={price}
                 />
                 <AppFormPicker
                     items={categories}
@@ -98,6 +102,7 @@ const onSubmit = async (listing, { resetForm}) => {
                     numberOfColumns={3}
                     // PickerItemComponent={CategoryPickerItem}
                     placeholder='Category'
+                    // value={category}
                     width='50%'
                 />
                 <AppFormField
@@ -106,6 +111,7 @@ const onSubmit = async (listing, { resetForm}) => {
                     name='description'
                     numberOfLines={3}
                     placeholder='Description'
+                    // value={description}
                     />
                 <SubmitButton title='Post'/>         
           </AppForm>
