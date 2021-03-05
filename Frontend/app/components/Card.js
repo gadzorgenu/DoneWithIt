@@ -19,7 +19,7 @@ function Card({
                         style={styles.image} 
                         // tint='light'
                         // preview={{ uri: thumbnailUrl }}
-                        source={imageUrl}
+                        source={{ uri: imageUrl}}
                     />
                     <View style={styles.detailsContainer}>
                 <AppText style={styles.title} numberOfLines={1}> {title}</AppText>

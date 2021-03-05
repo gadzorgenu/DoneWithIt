@@ -11,6 +11,7 @@ import NavigationTheme from './app/navigation/NavigationTheme';
 import AppNavigator from './app/navigation/AppNavigator';
 import OfflineNotice from './app/components/OfflineNotice';
 import AuthContext from './app/auth/authContext';
+import ListingsScreen from './app/screens/ListingsScreen';
 
 const Tweets = ({ navigation}) => {
  
@@ -87,12 +88,13 @@ export default function App() {
     const [user, setUser] = useState()
     
   return (
-    <AuthContext.Provider value={{ user, setUser}}>
-      <OfflineNotice />
-      <NavigationContainer theme={NavigationTheme}>
-      {  user ?  <AppNavigator /> : <AuthNavigator/> }
-      </NavigationContainer>
-    </AuthContext.Provider>
+    // <AuthContext.Provider value={{ user, setUser}}>
+    //   <OfflineNotice />
+    //   <NavigationContainer theme={NavigationTheme}>
+    //   {  user ?  <AppNavigator /> : <AuthNavigator/> }
+    //   </NavigationContainer>
+    // </AuthContext.Provider>
+    <ListingsScreen/>
   )
 }
 

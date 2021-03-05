@@ -8,7 +8,7 @@ import cache from '../utility/cache'
 
 const apiClient = create({
     // url of your backend server. localhost doesn't work
-    baseURL: 'http://192.168.8.126:9000/listings'
+    baseURL: 'http://192.168.8.126:9000'
 })
 
 const get = apiClient.get

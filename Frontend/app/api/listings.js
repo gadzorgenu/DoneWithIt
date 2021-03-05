@@ -1,34 +1,34 @@
-// import client from './client'
+import client from './client'
 
-// const { add } = require("react-native-reanimated")
+const { add } = require("react-native-reanimated")
 
-// const endpoint = '/listings'
-// const getListings = () => client.get(endpoint)
 
-// const addListing = (listing, onUploadProgress) => {
-//     const data = new FormData()
-//     data.append('title',listing.title)
-//     data.append('price',listing.price)
-//     data.append('categoryId',listing.category.value)
-//     data.append('description',listing.description)
+const getListings = () => client.get('/listings')
 
-//     listing.images.forEach( image => 
-//         data.append('images', {
-//             name: 'image' + index,
-//             type: 'image/jpeg',
-//             uri: image
-//         }))
+const addListing = (listing, onUploadProgress) => {
+    const data = new FormData()
+    data.append('title',listing.title)
+    data.append('price',listing.price)
+    data.append('categoryId',listing.category.value)
+    data.append('description',listing.description)
 
-//     if(listing.location)
-//     data.append('location', JSON.stringify(listing.location))
+    listing.images.forEach( image => 
+        data.append('images', {
+            name: 'image' + index,
+            type: 'image/jpeg',
+            uri: image
+        }))
 
-//    return client.post(endpoint, data,{
-//     onUploadProgress: progress => 
-//         onUploadProgress(progress.loaded / progress.total)
-// })
-// }
+    if(listing.location)
+    data.append('location', JSON.stringify(listing.location))
 
-// export default {
-//     getListings,
-//     addListing
-// }
+   return client.post('/listing', data,{
+    onUploadProgress: progress => 
+        onUploadProgress(progress.loaded / progress.total)
+})
+}
+
+export default {
+    getListings,
+    addListing
+}
