@@ -44,7 +44,7 @@ const location = useLocation()
 
 const onSubmit = async (values, { resetForm}) => {
     console.log('value',values)
-    const result = await listingsApi.addListing( { ...values, location})
+    const result = await listingsApi.addListing({ ...values, location})
     console.log('result',result)
     // setProgress(0)
     // setUploadVisible(true)
@@ -86,7 +86,6 @@ const onSubmit = async (values, { resetForm}) => {
                     maxLength={255}  
                     name='title' 
                     placeholder='Title'
-                    // value='title'
                 />
                 <AppFormField
                     keyboardType='numeric'
