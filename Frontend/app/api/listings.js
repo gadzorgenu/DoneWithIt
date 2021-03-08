@@ -12,7 +12,7 @@ const addListing = (listing) => {
     data.append('price',listing.price)
     data.append('categoryId',listing.category.value)
     data.append('description',listing.description)
-    data.append('images[0].url', listing.images[0])
+    data.append('images[0].url', listing.images[0].url)
     // listing.images.forEach((image,index) => 
     //     data.append('images.url', {
     //         name: 'image' + index, 

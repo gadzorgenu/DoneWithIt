@@ -22,6 +22,9 @@ const  validationSchema = Yup.object().shape({
     description: Yup.string().label('Description'),
     category: Yup.object().required().nullable().label('Category'),
     images: Yup.array().min(1,'Select at least one image.')
+    // images: Yup.array().min(1,'Select at least one image.').of(Yup.object().shape({
+    //     url: Yup.string().label('Image url is required')
+    // }))
 })
 
 const categories=[
