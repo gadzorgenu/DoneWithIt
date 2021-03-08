@@ -15,7 +15,7 @@ const port = 9000
 
 //middleware
 // app.use(express.urlencoded({ extended: true }))
-// app.use(express.json())
+app.use(express.json())
 
 
 
