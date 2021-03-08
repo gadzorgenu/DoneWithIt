@@ -1,7 +1,8 @@
 import client from './client'
 
-const { add } = require("react-native-reanimated")
+// const { add } = require("react-native-reanimated")
 
+// const endpoint = '/listings'
 
 const getListings = () => client.get('/listings')
 
@@ -11,19 +12,26 @@ const addListing = (listing) => {
     data.append('price',listing.price)
     data.append('categoryId',listing.category.value)
     data.append('description',listing.description)
+    data.append('images[0].url', listing.images)
+    // listing.images.forEach((image,index) => 
+    //     data.append('images.url', {
+    //         name: 'image' + index, 
+    //         type: 'image/jpg',
+    //         uri: listing.image
+    //     }))
 
-    listing.images.forEach((image,index) => 
-        data.append('images', {
-            name: 'image' + index, 
-            type: 'image/jpeg',
-            uri: image
-        }))
+    const config = {
+        headers: {
+            'content-type': 'multipart/form-data'
+        }
+    }
         // console.log('location',listing.location)
     if(listing.location)
-    data.append('location', JSON.stringify(listing.location))
+    data.append('location.latitude', JSON.stringify(listing.location.latitude))
+    data.append('location.longitude', JSON.stringify(listing.location.longitude))
 
     console.log('data',data)
-   return client.post('/listings', data)
+   return client.post('/listings', data, config)
 }
 
 export default {

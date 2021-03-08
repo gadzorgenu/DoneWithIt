@@ -22,7 +22,7 @@ const listingSchema = new mongoose.Schema({
        {    
            url: {
                 type: String,
-                required: [ true, 'Image is required']
+                required: [ true, 'Image url is required']
             }
         }
     ],

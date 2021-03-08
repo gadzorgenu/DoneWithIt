@@ -13,6 +13,17 @@ const db = process.env.Mongodb
 const hostname = "192.168.8.126";
 const port = 9000
 
+//middleware
+// app.use(express.urlencoded({ extended: true }))
+// app.use(express.json())
+
+
+
+//routes
+app.use(listingRoute)
+app.use(userRoute)
+
+// "start": "json-server -p 9000 -w db.json",
 mongoose.connect(db, 
     {
     useNewUrlParser: true, 
@@ -25,11 +36,3 @@ mongoose.connect(db,
         console.info(`Server running at http://${hostname}:${port}/`);
     })
 })
-//middleware
-app.use(express.json())
-
-//routes
-app.use(listingRoute)
-app.use(userRoute)
-
-// "start": "json-server -p 9000 -w db.json",

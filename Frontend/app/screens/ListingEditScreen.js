@@ -13,7 +13,7 @@ import Screen from '../components/Screen';
 import FormImagePicker from '../components/Forms/FormImagePicker';
 import useLocation from '../hooks/useLocation';
 import listingsApi from '../api/listings'
-import UploadScreen from './UploadScreen';
+// import UploadScreen from './UploadScreen';
 
 
 const  validationSchema = Yup.object().shape({
@@ -39,21 +39,25 @@ const categories=[
 function ListingEditScreen () {
 
 const location = useLocation()
-// const [uploadVisible, setUploadVisible] = useState(false)
-// const [progress, setProgress] = useState(0)
+
+const initialValues = {
+    title: '',
+    price: '',
+    description: '',
+    category: null,
+    images:[
+        {
+            url:''
+        }
+    ]
+}
 
 const onSubmit = async (values, { resetForm}) => {
     console.log('value',values)
     const result = await listingsApi.addListing({ ...values, location})
     console.log('result',result)
-    // setProgress(0)
-    // setUploadVisible(true)
-
-    // progress => setProgress(progress)
-    // )
 
     if(!result.ok){
-        // setUploadVisible(false)
      return alert('Could not save the listing.')
     }
     alert('Sucess')
@@ -62,20 +66,8 @@ const onSubmit = async (values, { resetForm}) => {
  
     return (
        <Screen style={styles.container} >
-           {/* <UploadScreen 
-                onDone={()=> 
-                setUploadVisible(false)} 
-                progress={progress} 
-                visible={uploadVisible} 
-            /> */}
            <AppForm
-                initialValues={{
-                    title: '',
-                    price: '',
-                    description: '',
-                    category: null,
-                    images:[]
-                }}
+                initialValues={initialValues}
                 onSubmit={onSubmit}
                 validationSchema={validationSchema}
            >
@@ -112,7 +104,7 @@ const onSubmit = async (values, { resetForm}) => {
                     placeholder='Description'
                     // value={description}
                     />
-                <SubmitButton title='Post'/>         
+                <SubmitButton title='Post' />         
           </AppForm>
        </Screen>
     );
