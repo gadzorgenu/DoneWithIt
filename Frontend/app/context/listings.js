@@ -11,7 +11,8 @@ const ListingsContextProvider = ({children}) => {
         try {
             await axios({
                 method:'POST',
-                url:'http://192.168.8.126:9000/listings'
+                url:'http://192.168.8.126:9000/listings',
+                body: listing
             })
         } catch (error) {
             return error 

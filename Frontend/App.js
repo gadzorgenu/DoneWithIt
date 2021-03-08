@@ -13,6 +13,7 @@ import OfflineNotice from './app/components/OfflineNotice';
 import AuthContext from './app/auth/authContext';
 import ListingsScreen from './app/screens/ListingsScreen';
 import ListingEditScreen from './app/screens/ListingEditScreen';
+import ListingsContextProvider from './app/context/listings';
 
 const Tweets = ({ navigation}) => {
  
@@ -95,7 +96,9 @@ export default function App() {
     //   {  user ?  <AppNavigator /> : <AuthNavigator/> }
     //   </NavigationContainer>
     // </AuthContext.Provider>
-    <ListingEditScreen/>
+    <ListingsContextProvider>
+      <ListingEditScreen/>
+    </ListingsContextProvider>
   )
 }
 
