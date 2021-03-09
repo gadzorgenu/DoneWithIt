@@ -96,7 +96,7 @@ export default function App() {
     //   {  user ?  <AppNavigator /> : <AuthNavigator/> }
     //   </NavigationContainer>
     // </AuthContext.Provider>
-      <ListingEditScreen/>
+      <ListingsScreen/>
   )
 }
 

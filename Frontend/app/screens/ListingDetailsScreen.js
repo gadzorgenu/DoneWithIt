@@ -1,5 +1,5 @@
 import React from 'react';
-import {  View, StyleSheet,Image } from 'react-native';
+import {  View, StyleSheet, Image } from 'react-native';
 // import { Image } from 'react-native-expo-image-cache'
 
 import AppText from '../components/AppText';
