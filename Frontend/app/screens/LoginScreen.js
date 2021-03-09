@@ -45,11 +45,10 @@ const LoginScreen = () => {
                 email: '',
                 password: ''
             }}
-                // onSubmit={ values => console.log('val', values )}
                 onSubmit={handleSubmit}
                 validationSchema={ValidationSchema}
             >
-                <ErrorMessage error='Invalid email and password' visible={loginFailed} />
+                <ErrorMessage error='Invalid email or password' visible={loginFailed} />
               <AppFormField 
                 autoCapitalize='none'
                 autoCorrect={false}
