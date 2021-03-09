@@ -23,12 +23,11 @@ const ListingController = {}
 
 ListingController.addListing =  (req,res) => {
     upload( req, res, async(err) =>{
-        console.log('request', JSON.parse(JSON.stringify(req.body)))
+        // console.log('request', JSON.parse(JSON.stringify(req.body)))
             try {
                 let listing = new Listing(req.body)
-                listing.images.url = fs.readFileSync(req.file.path)
+                listing.images.url = req.file.filename
                 let result = await listing.save()
-                console.log('result', res)
                 res.status(201).send({ message: 'Listing created', result})
             } catch (error) {
                 console.log(error)
@@ -36,8 +35,8 @@ ListingController.addListing =  (req,res) => {
             
     })
 }
-
-try {
+ListingController.getListings = async( req,res) => {
+    try {
         let listings = await Listing.find({})
         listings ? res.status(200).send({ message: 'Listings available', listings}) :
         res.status(400).send({ message: 'Listings unavailable'})
