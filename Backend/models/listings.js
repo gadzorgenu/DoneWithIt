@@ -18,14 +18,11 @@ const listingSchema = new mongoose.Schema({
         type: Number,
         required:[ true, 'Category ID is required']
     },
-    images: [
-       {    
-           url: {
-                type: String,
-                required: [ true, 'Image url is required']
-            }
-        }
-    ],
+    images: 
+        { url: Buffer, contentType: String },
+                // type: String,
+                // required: [ true, 'Image url is required']
+            
     location: {
         latitude:{
             type: String,

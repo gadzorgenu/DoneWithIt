@@ -48,17 +48,13 @@ const initialValues = {
     price: '',
     description: '',
     category: null,
-    images:[
-        {
-            url:''
-        }
-    ]
+    images:[]
 }
 
 const onSubmit = async (values, { resetForm}) => {
-    console.log('value',values)
+    // console.log('value',values)
     const result = await listingsApi.addListing({ ...values, location})
-    console.log('result',result)
+    // console.log('result',result)
 
     if(!result.ok){
      return alert('Could not save the listing.')
