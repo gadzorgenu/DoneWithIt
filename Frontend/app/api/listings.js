@@ -6,7 +6,7 @@ import client from './client'
 
 const getListings = () => client.get('/listings')
 
-const addListing = (listing) => {
+const addListing = (listing, onUploadProgress) => {
     const data = new FormData()
     data.append('title',listing.title)
     data.append('price',listing.price)
@@ -26,13 +26,14 @@ const addListing = (listing) => {
     //         'content-type': 'multipart/form-data'
     //     }
     // }
-        // console.log('location',listing.location)
+    
     if(listing.location)
     data.append('location.latitude', JSON.stringify(listing.location.latitude))
     data.append('location.longitude', JSON.stringify(listing.location.longitude))
 
-    // console.log('data',data)
-   return client.post('/listings', data)
+   return client.post('/listings', data, {
+       onUploadProgress: (progress) => onUploadProgress(progress.loaded / progress.total)
+   })
 }
 
 export default {

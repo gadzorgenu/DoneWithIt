@@ -13,6 +13,7 @@ import Screen from '../components/Screen';
 import FormImagePicker from '../components/Forms/FormImagePicker';
 import useLocation from '../hooks/useLocation';
 import listingsApi from '../api/listings'
+import UploadScreen from './UploadScreen';
 // import UploadScreen from './UploadScreen';
 
 
@@ -43,6 +44,9 @@ function ListingEditScreen () {
 
 const location = useLocation()
 
+const [uploadVisible, setUploadVisible] = useState(false)
+const [progress, setProgress] = useState(0)
+
 const initialValues = {
     title: '',
     price: '',
@@ -52,19 +56,29 @@ const initialValues = {
 }
 
 const onSubmit = async (values, { resetForm}) => {
-    // console.log('value',values)
-    const result = await listingsApi.addListing({ ...values, location})
-    // console.log('result',result)
+    setProgress(0)
+    setUploadVisible(true)
 
+    const result = await listingsApi.addListing(
+        { ...values, location},
+        progress => setProgress(progress)
+        )
+    setUploadVisible(false)
+    
     if(!result.ok){
+        setUploadVisible(false)
      return alert('Could not save the listing.')
     }
-    alert('Sucess')
     resetForm()
 }
  
     return (
        <Screen style={styles.container} >
+           <UploadScreen
+                onDone={()=> setUploadVisible(false)}
+                progress={progress}
+                visible={uploadVisible}
+           />
            <AppForm
                 initialValues={initialValues}
                 onSubmit={onSubmit}
@@ -84,7 +98,6 @@ const onSubmit = async (values, { resetForm}) => {
                     name='price'
                     placeholder='Price'
                     width={120}
-                    // value={price}
                 />
                 <AppFormPicker
                     items={categories}
@@ -92,7 +105,6 @@ const onSubmit = async (values, { resetForm}) => {
                     numberOfColumns={3}
                     // PickerItemComponent={CategoryPickerItem}
                     placeholder='Category'
-                    // value={category}
                     width='50%'
                 />
                 <AppFormField
@@ -101,7 +113,6 @@ const onSubmit = async (values, { resetForm}) => {
                     name='description'
                     numberOfLines={3}
                     placeholder='Description'
-                    // value={description}
                     />
                 <SubmitButton title='Post' />         
           </AppForm>
