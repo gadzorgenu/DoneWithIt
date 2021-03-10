@@ -24,14 +24,15 @@ function ListingsScreen({navigation}) {
 
 
     return (
+      <>
+        {/* <ActivityIndicator visible={getListingsApi.loading}/> */}
       <Screen style={styles.screen}>
           { getListingsApi.error && (<>
             <AppText>Couldn't retrieve listings</AppText>
-            <AppButton title='Retry' onPress={getListingsApi.data}/>
+            <AppButton title='Retry' onPress={getListingsApi.request}/>
             </>
           )
           }
-          {/* <ActivityIndicator visible={getListingsApi.loading}/> */}
           <FlatList
             data={getListingsApi.data.listings}
             //the id is to be converted to a string because Flatlist expects a string as a unique identifier
@@ -49,6 +50,7 @@ function ListingsScreen({navigation}) {
             }
           />
       </Screen>
+      </>
     );
 }
 
