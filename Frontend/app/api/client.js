@@ -1,4 +1,5 @@
 import { create } from 'apisauce'
+import authStorage from '../auth/authStorage'
 import cache from '../utility/cache'
 
 //the apisauce library is used for calling apis. 
@@ -11,8 +12,13 @@ const apiClient = create({
     baseURL: 'http://192.168.8.126:9000'
 })
 
-const get = apiClient.get
+apiClient.addAsyncRequestTransform(async(request) => {
+    const authToken = await authStorage.getToken()
+    if(!authToken) return
+    request.headers['x-auth-token'] = authToken
+})
 
+const get = apiClient.get
 apiClient.get = async (url, params, axiosConfig) => {
   const response = await  get(url, params, axiosConfig)
   if(response.ok){

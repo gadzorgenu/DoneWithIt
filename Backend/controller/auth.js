@@ -7,9 +7,20 @@ const UserController = {}
 
 //create user
 UserController.createUser = async (req, res) =>{
+
+    const emailExist = await User.findOne({email: req.body.email})
+    if(emailExist){
+        res.status(400).json({"error":'Email already Exist'}) 
+    }
     try {
         req.body.password = bcrypt.hashSync(req.body.password, 10)
-        let newUser = new User(req.body)
+
+        const newUser =  new User({
+            name: req.body.name,
+            email: req.body.email,
+            password: req.body.password
+          })
+        
         let result = await newUser.save()
 
         res.status(201).send({ message: 'Account created', result})
@@ -23,7 +34,6 @@ UserController.createUser = async (req, res) =>{
 UserController.loginUser = async(req,res) => {
     try {
         const body = req.body
-        console.log('body',body)
         const user = await User.findOne({ email: body.email}).exec()
 
         console.log('user',user)
