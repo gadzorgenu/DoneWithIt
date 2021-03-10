@@ -24,11 +24,14 @@ const LoginScreen = () => {
 
     const [loginFailed, setLoginFailed] = useState(false)
 
-    const handleSubmit = async ({ email, password}) => {
+    const handleSubmit = async (values,{email, password}) => {
+        console.log('val',values)
        const result = await authApi.login(email, password)
+    //    console.log('res',result.ok)
        if(!result.ok) return setLoginFailed(true)
         
        setLoginFailed(false)
+       console.log('user', result.data)
        const user = jwtDecode(result.data)
        authContext.setUser(user)
 
@@ -68,7 +71,7 @@ const LoginScreen = () => {
                 secureTextEntry
                 // textContentType='password'
             />
-        <SubmitButton title='Login'/>
+            <SubmitButton title='Login'/>
             </AppForm>
        </Screen>
     );
