@@ -1,6 +1,8 @@
 import React,{ useState, useEffect} from 'react';
 import Screen from './app/components/Screen'
 import { Button, Text } from 'react-native';
+import jwtDecode from 'jwt-decode'
+import AppLoading  from 'expo-app-loading'
 import { createStackNavigator } from '@react-navigation/stack'
 import { createBottomTabNavigator} from '@react-navigation/bottom-tabs'
 import { NavigationContainer } from '@react-navigation/native'
@@ -11,7 +13,7 @@ import AppNavigator from './app/navigation/AppNavigator';
 import OfflineNotice from './app/components/OfflineNotice';
 import AuthContext from './app/auth/authContext';
 import authStorage from './app/auth/authStorage';
-import jwtDecode from 'jwt-decode'
+
 
 const Tweets = ({ navigation}) => {
  
@@ -86,17 +88,26 @@ const TabNavigator = () =>{
 
 export default function App() {
     const [user, setUser] = useState()
-    
-const restoreToken = async () => {
- const token= await authStorage.getToken()
- if(!token) return
 
- setUser(jwtDecode(token))
-}
+    // to show if the app is ready or not in other to control the splash screen
+    const [isReady, setIsReady] = useState(false)
 
-    useEffect(() => {
-      restoreToken()
-    }, [])
+    const restoreToken = async () => {
+    const token= await authStorage.getToken()
+    if(!token) return
+
+    setUser(jwtDecode(token))
+    }
+
+    if(!isReady){
+      return (
+         <AppLoading  
+          startAsync={ restoreToken} 
+          onFinish={() => setIsReady(true)}
+          onError={(error)=> console.log(error)}
+        />
+      )
+    }
   return (
     <AuthContext.Provider value={{ user, setUser}}>
       <OfflineNotice />

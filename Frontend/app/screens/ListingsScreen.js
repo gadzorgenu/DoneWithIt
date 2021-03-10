@@ -27,7 +27,7 @@ function ListingsScreen({navigation}) {
       <Screen style={styles.screen}>
           { getListingsApi.error && (<>
             <AppText>Couldn't retrieve listings</AppText>
-            <AppButton title='Retry' onPress={loadListings}/>
+            <AppButton title='Retry' onPress={getListingsApi.data}/>
             </>
           )
           }
