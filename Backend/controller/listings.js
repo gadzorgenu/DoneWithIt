@@ -21,7 +21,12 @@ const upload = multer({
 const ListingController = {}
 
 
-ListingController.addListing =  (req,res) => {
+ListingController.addListing = async (req,res) => {
+    
+    const titleExist = await Listing.findOne({title: req.body.title})
+    if(titleExist){
+        res.status(400).json({"error":'Title already exist'}) 
+    }
     upload( req, res, async(err) =>{
         // console.log('request', JSON.parse(JSON.stringify(req.body)))
             try {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{ useState} from 'react';
 import {StyleSheet} from 'react-native'
 import * as Yup from 'yup'
 
@@ -6,8 +6,11 @@ import Screen from '../components/Screen';
 import {
     AppForm, 
     AppFormField,
+    ErrorMessage,
     SubmitButton
 } from '../components/Forms'
+import useAuth from '../auth/useAuth';
+import authApi from '../api/auth'
 
 const ValidationSchema =  Yup.object().shape({
     email: Yup.string().required().email().label('Email'),
@@ -16,6 +19,27 @@ const ValidationSchema =  Yup.object().shape({
 })
 
 const RegisterScreen = () => {
+    const auth = useAuth()
+    const [error, setError] = useState()
+
+    const onSubmit = async (values) =>{
+        console.log('values', values)
+        const result = await authApi.register(values)
+        if(!result.ok){
+            if(result.data) setError(result.data.error)
+            else{
+                setError('An unexpected error occured')
+                console.log('result', result)
+            }
+            return
+        } 
+            const { data: authToken} = await authApi.login(
+                values.email,
+                values.password
+            )
+            auth.logIn(authToken.token)
+
+    }
 
     return (
        <Screen style={styles.container}>
@@ -24,20 +48,21 @@ const RegisterScreen = () => {
                 name: '',
                 password: ''
             }}
-                onSubmit={ values => console.log('val', values )}
+                onSubmit={onSubmit}
                 validationSchema={ValidationSchema}
             >
+                <ErrorMessage error={error} visible={error} /> 
                 <AppFormField
                     autoCapitalize='none'
                     autoCorrect={false}
-                    icon='Account'
+                    icon='account'
                     placeholder='Name'
                     name='name'
                 />
                 <AppFormField 
                     autoCapitalize='none'
                     autoCorrect={false}
-                    icon='account'
+                    icon='email'
                     keyboardType='email-address'
                     name='email'
                     placeholder='Email'

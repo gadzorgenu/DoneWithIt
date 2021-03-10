@@ -10,7 +10,7 @@ UserController.createUser = async (req, res) =>{
 
     const emailExist = await User.findOne({email: req.body.email})
     if(emailExist){
-        res.status(400).json({"error":'Email already Exist'}) 
+        res.status(400).json({"error":'Email already exist'}) 
     }
     try {
         req.body.password = bcrypt.hashSync(req.body.password, 10)
