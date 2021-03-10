@@ -39,6 +39,7 @@ UserController.loginUser = async(req,res) => {
 
         const userToken = {
             email: user.email,
+            name: user.name,
             id: user._id
         }
 

@@ -35,7 +35,7 @@ function ListingsScreen({navigation}) {
           <FlatList
             data={getListingsApi.data.listings}
             //the id is to be converted to a string because Flatlist expects a string as a unique identifier
-            keyExtractor={(listing) => listing.id}
+            keyExtractor={(listing) => listing.id.toString()}
             // keyExtractor={(listing) => console.log(listing.id)}
             renderItem={
                 ({ item }) => 

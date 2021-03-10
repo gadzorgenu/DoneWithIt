@@ -29,11 +29,10 @@ const LoginScreen = () => {
        if(!result.ok) return setLoginFailed(true)
         
        setLoginFailed(false)
-       console.log('token', result.data)
-    //    const user = jwtDecode(result.data)
-    //    authContext.setUser(user)
+       const user = jwtDecode(result.data.token)
+       console.log('useerrr', user)
+       authContext.setUser(user)
 
-    //    console.log('user',user)
     }
 
     return (

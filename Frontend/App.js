@@ -90,15 +90,12 @@ export default function App() {
     const [user, setUser] = useState()
     
   return (
-    // <AuthContext.Provider value={{ user, setUser}}>
-    <>
+    <AuthContext.Provider value={{ user, setUser}}>
       <OfflineNotice />
       <NavigationContainer theme={NavigationTheme}>
-      <AuthNavigator />
-      {/* {  user ?  <AppNavigator /> : <AuthNavigator/> } */}
+      {  user ?  <AppNavigator /> : <AuthNavigator/> }
        </NavigationContainer>
-    </>
-    // </AuthContext.Provider>
+    </AuthContext.Provider>
   )
 }
 
