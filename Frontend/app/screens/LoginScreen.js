@@ -12,6 +12,7 @@ import {
 } from '../components/Forms'
 import authApi from '../api/auth'
 import AuthContext from '../auth/authContext';
+import authStorage from '../auth/authStorage';
 
 const ValidationSchema =  Yup.object().shape({
     email: Yup.string().required().email().label('Email'),
@@ -30,8 +31,8 @@ const LoginScreen = () => {
         
        setLoginFailed(false)
        const user = jwtDecode(result.data.token)
-       console.log('useerrr', user)
        authContext.setUser(user)
+       authStorage.storeToken(result.data.token)
 
     }
 

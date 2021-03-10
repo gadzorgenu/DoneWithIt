@@ -1,19 +1,17 @@
-import React,{ useState} from 'react';
+import React,{ useState, useEffect} from 'react';
 import Screen from './app/components/Screen'
 import { Button, Text } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack'
 import { createBottomTabNavigator} from '@react-navigation/bottom-tabs'
 import { NavigationContainer } from '@react-navigation/native'
 import {MaterialCommunityIcons} from '@expo/vector-icons'
-import { color } from 'react-native-reanimated';
 import AuthNavigator from './app/navigation/AuthNavigator'
 import NavigationTheme from './app/navigation/NavigationTheme';
 import AppNavigator from './app/navigation/AppNavigator';
 import OfflineNotice from './app/components/OfflineNotice';
 import AuthContext from './app/auth/authContext';
-import ListingsScreen from './app/screens/ListingsScreen';
-import ListingEditScreen from './app/screens/ListingEditScreen';
-import ListingsContextProvider from './app/context/listings';
+import authStorage from './app/auth/authStorage';
+import jwtDecode from 'jwt-decode'
 
 const Tweets = ({ navigation}) => {
  
@@ -89,6 +87,16 @@ const TabNavigator = () =>{
 export default function App() {
     const [user, setUser] = useState()
     
+const restoreToken = async () => {
+ const token= await authStorage.getToken()
+ if(!token) return
+
+ setUser(jwtDecode(token))
+}
+
+    useEffect(() => {
+      restoreToken()
+    }, [])
   return (
     <AuthContext.Provider value={{ user, setUser}}>
       <OfflineNotice />
@@ -98,29 +106,4 @@ export default function App() {
     </AuthContext.Provider>
   )
 }
-
-
-// import React from 'react'
-// // import NetInfo, { useNetInfo} from '@react-native-community/netinfo'
-// import { Button } from 'react-native'
-// import AsyncStorage from '@react-native-async-storage/async-storage'
-
-
-// export default function App () {
-//   // const netInfo = useNetInfo()
-
-//   const d = async() => {
-//     try {
-//       await  AsyncStorage.setItem('person', JSON.stringify({ id: 1}))
-//      const value = await AsyncStorage.getItem('person')
-//       const person = JSON.parse(value)
-//       console.log(person)
-//     } catch (error) {
-//       console.log(error)
-//     }
-//   }
-
-//   d()
-//  return null
-// }
 
