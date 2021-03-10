@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react'
+import React,{useEffect, useState} from 'react'
 import { createBottomTabNavigator} from '@react-navigation/bottom-tabs'
 import {MaterialCommunityIcons} from '@expo/vector-icons'
 import * as Notifications from 'expo-notifications'
@@ -9,13 +9,16 @@ import ListingEditScreen from '../screens/ListingEditScreen'
 import FeedNavigator from './FeedNavigator'
 import AccountNavigator from './AccountNavigator'
 import NewListingButton from './NewListingButton'
+import { Platform } from 'react-native'
 
 const Tab = createBottomTabNavigator()
 
 const  AppNavigator = () => {
 
+    const [expoPushToken, setExpoPushToken] = useState('')
+
     useEffect(() => {
-      registerForPushNotifications()
+      registerForPushNotifications().then(token => setExpoPushToken(token))
     }, [])
 
     const registerForPushNotifications = async() => {
@@ -29,15 +32,26 @@ const  AppNavigator = () => {
                     const { status } = await Notifications.requestPermissionsAsync()
                     finalStatus = status
                 }
-                
+                if( finalStatus !== 'granted'){
+                    alert('Failed to get push token for notification')
+                    return
+                }
+                token =  ( await Notifications.getExpoPushTokenAsync()).data
+                console.log('token',token)
+            }else {
+                alert('Must use physical device for push Notification')
             }
-            const permission = await Permissions.askAsync(Permissions.NOTIFICATIONS)
-    
-            if(!permission.granted) return
-    
-           const token = await Notifications.getExpoPushTokenAsync()
-    
-           console.log('token', token)
+
+            if (Platform.OS === 'android'){
+                Notifications.setNotificationChannelAsync('default', {
+                    name: 'default',
+                    importance: Notifications.AndroidImportance.MAX,
+                    vibrationPattern: [0, 250,250,250],
+                    lightColor: '#FF231F7C'
+                })
+            }
+            return token
+
         } catch (error) {
             console.log('Error getting a push token', error)
         }

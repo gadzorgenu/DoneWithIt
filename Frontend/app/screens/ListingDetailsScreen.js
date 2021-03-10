@@ -8,6 +8,7 @@ import colors from '../config/colors';
 
 function ListingDetailsScreen({ route }) {
     const listing = route.params
+    
     return (
        <View>
            <Image 
