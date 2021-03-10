@@ -17,7 +17,7 @@ function Card({
             <View style={styles.card}>
                     <Image 
                         style={styles.image} 
-                        tint='light'
+                        // tint='light'
                         // preview={{ uri: thumbnailUrl }}
                         source={{ uri: imageUrl}}
                         // uri={imageUrl}
