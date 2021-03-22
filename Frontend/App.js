@@ -34,7 +34,6 @@ const Tweets = ({ navigation}) => {
 
 const TweetDetails = ({ route}) => {
   // const route = useRoute()
-  console.log(route)
   return(
     <Screen>
       <Text>Tweets Details{route.params.id} </Text>
