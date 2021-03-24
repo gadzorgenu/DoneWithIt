@@ -10,7 +10,7 @@ const app = express()
 
 const db = process.env.Mongodb
 
-const hostname = "192.168.8.126";
+const hostname = "192.168.43.195";
 const port = 9000
 
 //middleware

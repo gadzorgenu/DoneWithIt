@@ -31,7 +31,8 @@ ListingController.addListing = async (req,res) => {
         // console.log('request', JSON.parse(JSON.stringify(req.body)))
             try {
                 let listing = new Listing(req.body)
-                listing.images.url = req.file.filename
+                // console.log('file', req.file)
+                // listing.images.url = req.file.filename
                 let result = await listing.save()
                 res.status(201).send({ message: 'Listing created', result})
             } catch (error) {

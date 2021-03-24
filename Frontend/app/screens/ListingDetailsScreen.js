@@ -8,12 +8,13 @@ import colors from '../config/colors';
 
 function ListingDetailsScreen({ route }) {
     const listing = route.params
+    console.log('listing', listing.images[0].url)
     
     return (
        <View>
            <Image 
                 style={styles.image}
-                source={listing.image}
+                source={{ uri: listing.images[0].url}}
                 // preview={{ uri: listing.images[0].thumbnailUrl}}
                 // tint='light'
                 // uri={listing.images[0].url}
