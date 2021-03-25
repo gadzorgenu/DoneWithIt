@@ -1,8 +1,8 @@
 import React,{useEffect, useState} from 'react'
 import { createBottomTabNavigator} from '@react-navigation/bottom-tabs'
 import {MaterialCommunityIcons} from '@expo/vector-icons'
-import * as Notifications from 'expo-notifications'
-import * as Permissions from 'expo-permissions'
+// import * as Notifications from 'expo-notifications'
+// import * as Permissions from 'expo-permissions'
 import Constants from 'expo-constants'
 
 import ListingEditScreen from '../screens/ListingEditScreen'
@@ -15,40 +15,40 @@ const Tab = createBottomTabNavigator()
 
 const  AppNavigator = () => {
 
-    const [expoPushToken, setExpoPushToken] = useState('')
+    // const [expoPushToken, setExpoPushToken] = useState('')
 
-    useEffect(() => {
-      registerForPushNotifications().then(token => setExpoPushToken(token))
-    }, [])
+    // useEffect(() => {
+    //   registerForPushNotifications().then(token => setExpoPushToken(token))
+    // }, [])
 
     const registerForPushNotifications = async() => {
 
-            if (Constants.isDevice) {
-              const { status: existingStatus } = await Notifications.getPermissionsAsync();
-              let finalStatus = existingStatus;
-              if (existingStatus !== 'granted') {
-                const { status } = await Notifications.requestPermissionsAsync();
-                finalStatus = status;
-              }
-              if (finalStatus !== 'granted') {
-                alert('Failed to get push token for push notification!');
-                return;
-              }
-              const token = (await Notifications.getExpoPushTokenAsync()).data;
-              console.log(token);
-              this.setState({ expoPushToken: token });
-            } else {
-              alert('Must use physical device for Push Notifications');
-            }
+            // if (Constants.isDevice) {
+            //   const { status: existingStatus } = await Notifications.getPermissionsAsync();
+            //   let finalStatus = existingStatus;
+            //   if (existingStatus !== 'granted') {
+            //     const { status } = await Notifications.requestPermissionsAsync();
+            //     finalStatus = status;
+            //   }
+            //   if (finalStatus !== 'granted') {
+            //     alert('Failed to get push token for push notification!');
+            //     return;
+            //   }
+            //   const token = (await Notifications.getExpoPushTokenAsync()).data;
+            //   console.log(token);
+            //   this.setState({ expoPushToken: token });
+            // } else {
+            //   alert('Must use physical device for Push Notifications');
+            // }
           
-            if (Platform.OS === 'android') {
-              Notifications.setNotificationChannelAsync('default', {
-                name: 'default',
-                importance: Notifications.AndroidImportance.MAX,
-                vibrationPattern: [0, 250, 250, 250],
-                lightColor: '#FF231F7C',
-              });
-            }
+            // if (Platform.OS === 'android') {
+            //   Notifications.setNotificationChannelAsync('default', {
+            //     name: 'default',
+            //     importance: Notifications.AndroidImportance.MAX,
+            //     vibrationPattern: [0, 250, 250, 250],
+            //     lightColor: '#FF231F7C',
+            //   });
+            // }
         // let token;
         // // try {
         //     if(Constants.isDevice){

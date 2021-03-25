@@ -78,7 +78,8 @@ const TabNavigator = () =>{
           options={{
             tabBarIcon: ({ color,size}) => <MaterialCommunityIcons  name='home' size={size} color={color}/>
           }}
-          name='Feed' component={FeedNavigator}/>
+          name='Feed' 
+          component={FeedNavigator}/>
         <Tab.Screen 
           options={{
             tabBarIcon: ({ color, size}) => <MaterialCommunityIcons name='user-circle' size={size} color={color}/>

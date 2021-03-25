@@ -66,7 +66,7 @@ const LoginScreen = () => {
                 secureTextEntry
                 // textContentType='password'
             />
-        <SubmitButton title='Login'/>
+            <SubmitButton title='Login'/>
             </AppForm>
        </Screen>
     );

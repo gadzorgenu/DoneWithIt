@@ -3,12 +3,12 @@ import {  View, StyleSheet, Image } from 'react-native';
 // import { Image } from 'react-native-expo-image-cache'
 
 import AppText from '../components/AppText';
+import ContactSellerForm from '../components/Forms/ContactSellerForm';
 import ListItem from '../components/ListItem';
 import colors from '../config/colors';
 
 function ListingDetailsScreen({ route }) {
     const listing = route.params
-    console.log('listing', listing.images[0].url)
     
     return (
        <View>
@@ -24,12 +24,13 @@ function ListingDetailsScreen({ route }) {
                 <AppText style={styles.price}>{'$' +listing.price}</AppText>
                 <View style={styles.userContainer}>
                     <ListItem 
-                        image={require('../assets/jacket.jpg')}
+                        image={require('../assets/me.jpg')}
                         title='Gyna Adzorgenu'
                         subTitle='5 Listings'
                     />
                 </View>
             </View>
+            <ContactSellerForm />
        </View>
     );
 }

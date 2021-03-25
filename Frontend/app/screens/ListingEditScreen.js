@@ -29,15 +29,15 @@ const  validationSchema = Yup.object().shape({
 })
 
 const categories=[
-    { label: 'Furniture',value: 1, backgroundColor:'red', icon:'lamp' },
+    { label: 'Furniture',value: 1, backgroundColor:'red', icon:'floor-lamp' },
     { label: 'Cars',value: 2, backgroundColor:'orange',icon:'car'},
     { label: 'Camera',value: 3, backgroundColor:'yellow', icon:'camera'},
-    { label: 'Games',value:4,backgroundColor:'pink', icon:'cellphone-sound'},
+    { label: 'Games',value:4,backgroundColor:'pink', icon:'cards'},
     { label: 'Clothing',value:5,backgroundColor:'green', icon:'shoe-heel'},
-    { label: 'Sports',value:6,backgroundColor:'blue', icon:'football'},
+    { label: 'Sports',value:6,backgroundColor:'blue', icon:'basketball'},
     { label: 'Movies & Music',value:7,backgroundColor:'blue', icon:'headphones'},
-    { label: 'Books',value:8,backgroundColor:'violet', icon:'book-open'},
-    { label: 'Others',value:9,backgroundColor:'gray', icon:'calendar'}
+    { label: 'Books',value:8,backgroundColor:'violet', icon:'book-open-variant'},
+    { label: 'Others',value:9,backgroundColor:'gray', icon:'application'}
   ]
 
 function ListingEditScreen () {
@@ -103,7 +103,7 @@ const onSubmit = async (values, { resetForm}) => {
                     items={categories}
                     name='category'
                     numberOfColumns={3}
-                    // PickerItemComponent={CategoryPickerItem}
+                    PickerItemComponent={CategoryPickerItem}
                     placeholder='Category'
                     width='50%'
                 />

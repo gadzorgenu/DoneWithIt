@@ -8,15 +8,15 @@ import Screen from '../components/Screen';
 const initialMessages = [
     {
         id: 1,
-        title: 'wehfjjkhf wkjfhiuef kjdfh skjvfh ksjfv ksjdf skjfhv skjfhvs kdjvhfksjdv skjbsevfb kewjrhh skejfbvsvd skdjfhvksd vxkjfdv',
-        description: 'slgj ero gh;uer greug ekjrhgvruirjeg kjre hgurnvfd,mnvjker hguir reoigv jkh guiver grejk hgvfd drgfuherr eugfvhrfegrie gvdrguhrj gfvlr gvurg ru yguirgtyvdg r yleruvliufy griue ygfviudkygirgyr7 reyfu rle ',
-        image: require('../assets/jacket.jpg')
+        title:'Message 1',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        image: require('../assets/me.jpg')
     },
     {
         id: 2,
-        title: 'T2',
-        description: 'D2',
-        image: require('../assets/jacket.jpg')
+        title: 'Message 2',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        image: require('../assets/mee.jpg')
     },
 ]
 

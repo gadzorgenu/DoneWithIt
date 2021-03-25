@@ -1,29 +1,37 @@
-// import React from 'react';
-// import { Alert, Keyboard, StyleSheet, View } from 'react-native';
+import React from 'react';
+import { Alert, Keyboard, StyleSheet, View } from 'react-native';
+import { AppFormField, SubmitButton } from '.';
 
-// function ContactSellerForm({ listing}) {
+function ContactSellerForm({ listing}) {
  
-//     const handleSubmit = async ( { message}, {resetForm}) => {
-//         Keyboard.dismiss()
+    // const handleSubmit = async ( { message}, {resetForm}) => {
+    //     Keyboard.dismiss()
 
-//         const result = await messagesApi.send(message, listing.id)
+    //     const result = await messagesApi.send(message, listing.id)
         
-//         if(!result.ok){
-//             console.log('error', result)
-//             return Alert.alert('Error', 'Could not send message to seller')
-//         }
+    //     if(!result.ok){
+    //         console.log('error', result)
+    //         return Alert.alert('Error', 'Could not send message to seller')
+    //     }
 
-//         resetForm()
+    //     resetForm()
 
-//     }
+    // }
  
-//  return (
-// <View style={styles.container}></View>
-// );
-// }
+ return (
+    <View style={styles.container}>
+        <AppFormField 
+            placeholder = 'Is this still available ?'
+        />
+        <SubmitButton title='Contact Seller'/>
+    </View>
+    );
+}
 
-// const styles = StyleSheet.create({
-//  container: {}
-// });
+const styles = StyleSheet.create({
+ container: {
+     padding: 10
+ }
+});
 
-// export default ContactSellerForm;
+export default ContactSellerForm;
